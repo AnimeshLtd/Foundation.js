@@ -1,0 +1,32 @@
+{
+  "name": "@animesh.ltd/foundation",
+  "version": "0.0.1",
+  "description": "The missing JavaScript standard library",
+  "license": "MIT",
+  "main": "source/foundation.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "homepage": "https://github.com/AnimeshLtd/Foundation.js#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnimeshLtd/Foundation.js"
+  },
+  "bugs": {
+    "url": "https://github.com/AnimeshLtd/Foundation.js/issues",
+    "email": "hello@animesh.ltd"
+  },
+  "author": {
+    "name": "Animesh Mishra",
+    "email": "hello@animesh.ltd",
+    "url": "https://animesh.ltd"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  },
+
+  "jest": {
+    "errorOnDeprecated": true,
+    "verbose": true
+  }
+}
