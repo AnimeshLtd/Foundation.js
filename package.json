@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "source/foundation.js",
   "scripts": {
-    "ci": "jest",
+    "ci": "npm install --only=dev && jest",
     "test": "jest"
   },
   "homepage": "https://github.com/AnimeshLtd/Foundation.js#readme",
