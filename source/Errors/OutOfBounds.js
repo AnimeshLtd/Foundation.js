@@ -1,6 +1,6 @@
 /**
  *  Thrown when a data structure is accessed at an index that falls
- *  outside the bounds [0, size).
+ *  outside the bounds of the collection.
  *  
  *  @class
  */

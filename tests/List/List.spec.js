@@ -2,7 +2,10 @@ const List = require("../../source/List/List")
 
 describe("List spec", function () {
   it("should initialise a list", testInit)
-  it("should add data", testAdd)
+  
+  it("should add data at end by default", testAdd)
+  it("should add data at start", testAddAtStart)
+  it("should add data at given index", testAddAtIndex)
 
   it("should find data by value", testIndexOf)
   it("should handle search by value failure", testIndexOfFailCase)
@@ -21,6 +24,25 @@ function testAdd() {
   list.add(10)
   list.add(20)
   expect(list.count).toBe(2)
+  expect(list.itemAtIndex(1)).toBe(20)
+}
+
+function testAddAtStart() {
+  const list = new List()
+  list.add(10)
+  list.add(20)
+  list.add(30, 0)
+  expect(list.count).toBe(3)
+  expect(list.itemAtIndex(0)).toBe(30)
+}
+
+function testAddAtIndex() {
+  const list = new List()
+  list.add(10)
+  list.add(20)
+  list.add(30, 1)
+  expect(list.count).toBe(3)
+  expect(list.itemAtIndex(1)).toBe(30)
 }
 
 function testIndexOf() {
@@ -29,7 +51,7 @@ function testIndexOf() {
   list.add(20)
   list.add(30)
   list.add(40)
-  expect(list.indexOf(30)).toBe(1)
+  expect(list.indexOf(30)).toBe(2)
 }
 
 function testIndexOfFailCase() {
@@ -47,7 +69,7 @@ function testItemAtIndex() {
   list.add(20)
   list.add(30)
   list.add(40)
-  expect(list.itemAtIndex(2)).toBe(20)
+  expect(list.itemAtIndex(2)).toBe(30)
 }
 
 function testItemAtIndexOutOfBounds() {
