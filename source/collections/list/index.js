@@ -25,6 +25,20 @@ const Node  = require("./node")
  *  Inserting or deleting at the end of a list takes `O(n)`. Arrays take `O(1)`. We 
  *  keep reference to the last item in the List here to optimise performance and
  *  insert/delete at the end of list in `O(1)`.
+ * 
+ *  ### Guidance
+ *  Use an array when:
+ *  - you want to access elements at **random** using an index, constant time O(1)
+ *  - you need two-dimensional or multi-dimensional arrays
+ * 
+ *  Use List when:
+ *  - you want to access elements in a **sequential** manner only, like in stacks or
+ *    queues
+ *  - you would be inserting/deleting elements at the start and end of the list only.
+ *    List takes constant time O(1), arrays O(n)
+ *  - you have memory constraints. Array pre-allocate a large chunk of contiguous
+ *    memory on initialisation. List are grow-as-you-go and don't need contiguous
+ *    memory.
  *  
  *  @class
  */
