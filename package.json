@@ -5,7 +5,9 @@
   "license": "MIT",
   "main": "source/foundation.js",
   "scripts": {
-    "test": "jest"
+    "ci": "npm install --only=dev && jest",
+    "test": "jest",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "homepage": "https://github.com/AnimeshLtd/Foundation.js#readme",
   "repository": {
@@ -22,9 +24,10 @@
     "url": "https://animesh.ltd"
   },
   "devDependencies": {
-    "jest": "^24.8.0"
+    "braintree-jsdoc-template": "^3.3.0",
+    "jest": "^24.8.0",
+    "jsdoc": "^3.6.3"
   },
-
   "jest": {
     "errorOnDeprecated": true,
     "verbose": true
