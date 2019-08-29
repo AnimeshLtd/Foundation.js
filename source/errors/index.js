@@ -8,7 +8,7 @@
  * 
  *  @module errors
  */
-const OutOfBoundsError = require("./outOfBounds")
+const OutOfBoundsError = require("./OutOfBounds")
 
 module.exports = {
   /** @type OutOfBoundsError */
