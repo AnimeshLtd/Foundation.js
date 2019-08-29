@@ -1,6 +1,6 @@
-const List = require("../../source/List/List")
+const List = require("../../source/collections").List
 
-describe("List spec", function () {
+describe("Collections ◊ List", function () {
   it("should initialise a list", testInit)
   
   it("should add data at end by default", testAdd)

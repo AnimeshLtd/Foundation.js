@@ -1,14 +1,26 @@
 {
   "opts": {
     "destination": "./docs",
+    "encoding": "utf-8",
     "recurse": true,
-    "template": "node_modules/docdash"
+    "template": "docs/template"
   },
   "plugins": [
     "plugins/markdown"
   ],
   "source": {
-    "include": "./source",
+    "include": [
+      "./source",
+      "Readme.md"
+    ],
     "includePattern": ".+\\.js(doc|x)?$"
-  } 
+  },
+  "templates": {
+    "referenceTitle": "Foundation.js Reference",
+    "disableSort": false,
+    "collapse": true,
+    "resources": {
+      "JS Guide (Mozilla)": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+    }
+  }
 }

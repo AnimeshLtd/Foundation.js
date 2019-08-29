@@ -1,43 +1,40 @@
-const Errors = require("../Errors")
-const Node  = require("./Node")
+const Errors = require("../../errors")
+const Node  = require("./node")
 
 /**
  *  A List (or linked list) is a linear data structure formed by chaining
  *  Nodes together. Lists come in three varieties:
- *      - single: every node points to the next node
- *      - double: every node stores a reference to previous and next nodes
- *      - circular: the last node points to the first node
+ *  - single: every node points to the next node
+ *  - double: every node stores a reference to previous and next nodes
+ *  - circular: the last node points to the first node
+ * 
+ *  Instances of this class are doubly-linked circular lists.
  * 
  *  Unlike arrays, Lists don't support random data access. When fetching data
  *  from a list, the cursor begins at head and sequentially visits each node.
- *  Thus, access data in a List is an O(n) operation.
+ *  Thus, access data in a List is an `O(n)` operation.
  * 
  *  Lists fare better than arrays in space complexity. Lists don't need to be
  *  contiguous. Furthermore, Nodes occupy exactly the memory they need so large
  *  chunks of memory need not be reserved beforehand. When an array fills up,
  *  the runtime creates a bigger array and copies all the items to the new array.
- *  This O(n) operation isn't relevant to Lists.
+ *  This `O(n)` operation isn't relevant to Lists.
  * 
- *  Adding or deleting at the beginning of a list takes O(1). Arrays take O(n).
+ *  Adding or deleting at the beginning of a list takes `O(1)`. Arrays take `O(n)`.
  *  
- *  Inserting or deleting at the end of a list takes O(n). Arrays take O(1). We 
+ *  Inserting or deleting at the end of a list takes `O(n)`. Arrays take `O(1)`. We 
  *  keep reference to the last item in the List here to optimise performance and
- *  insert/delete at the end of list in O(1).
+ *  insert/delete at the end of list in `O(1)`.
  *  
  *  @class
  */
 class List {
   constructor() {
-    /** @type Node */
+    /** @private */
     this.first = null
-
-    /** @type Node */
+    /** @private */
     this.last = null
-
-    /** 
-     *  Total number of elements in the list
-     *  @type number
-     */
+    /** @private */
     this.count = 0
   }
 
@@ -45,12 +42,11 @@ class List {
    *  Add element at the given position in the list. If no index is specified,
    *  data is added to the end of the list.
    *  
-   *  Using the element last reference instead of navigating through the list, 
-   *  we get constant runtime, instead of linear, when adding at end of list.
+   *  Returns the newly created node.
    *  
    *  Runtime: 
-   *    O(1) for adding at start or end (default) of the list
-   *    O(n) otherwise
+   *  - O(1) for adding at start or end (default) of the list
+   *  - O(n) otherwise
    *  
    *  @param {any} data
    *  @param {number} atIndex 0 for adding at start of the list, or a positive 
@@ -59,9 +55,9 @@ class List {
    *  @throws {OutOfBoundsError} If index is negative or out of bounds
    * 
    *  @example
-   *    list.add(123)       // Adds '123' at the end of the list
-   *    list.add(123, 0)    // Adds '123' at the beginning of the list
-   *    list.add(123, 4)    // Adds '123' at index 4 or throws an error 
+   *  list.add(123)       // Adds '123' at the end of the list
+   *  list.add(123, 0)    // Adds '123' at the beginning of the list
+   *  list.add(123, 4)    // Adds '123' at index 4 or throws an error 
    */
   add(data, atIndex = this.count) {
     const index = atIndex
@@ -129,6 +125,8 @@ class List {
 
   /**
    *  Finds the first occurrence of `value` in the list.
+   *  
+   *  Returns index of first occurrence or `null`.
    *  Runtime: O(n)
    * 
    *  @param {any} value
@@ -136,8 +134,8 @@ class List {
    * 
    *  @example
    *  // Given a list 1 → 2 → 3
-   *    list.indexOf(2) // 1
-   *    list.indexOf(5) // null
+   *  list.indexOf(2) // 1
+   *  list.indexOf(5) // null
    */
   indexOf(value) {
     return this.find((node, index) => {
@@ -158,8 +156,8 @@ class List {
    * 
    *  @example
    *  // Given a list 1 → 2 → 3
-   *    list.itemAtIndex(2) // 3
-   *    list.itemAtIndex(5) // null
+   *  list.itemAtIndex(2) // 3
+   *  list.itemAtIndex(5) // null
    */
   itemAtIndex(index = 0) {
     return this.nodeAtIndex(index).data
@@ -186,13 +184,15 @@ class List {
   }
 
   /**
-   *  Iterate through the list until predicate return a truthy value.
-   *  
-   *  @param {List.FindPredicate} predicate 
-   *  @returns {any} whatever the predicate returns or null if predicate
-   *    never returns a truthy value
+   *  Search through the list for a node that matches the predicate. 
    * 
-   *  @example see #get and #indexOf
+   *  Returns whatever the predicate returns. If predicate doesn't return a 
+   *  non-null value for any Node, returns `null` to indicate that the search 
+   *  failed.
+   * 
+   *  @param {List.FindPredicate} predicate 
+   *  @returns {?any} whatever the predicate returns or `null` if predicate
+   *    never returns a value other than `null`
    */
   find(predicate) {
     let current = this.first
@@ -219,12 +219,21 @@ module.exports = List
 // ------------------ Type definitions ------------------------------- //
 
 /**
- *  This closure is used to specify custom search predicate used by {@link find} 
- *  method. The function is passed a node and its index in the list on each iteration. 
- *  Search continues until the closure returns a value other than `null`.
+ *  This closure is used to specify custom search predicate used by the 
+ *  [find]{@linkcode List#find} method. The function is passed a node and its
+ *  index in the list on each iteration. Search continues until the closure
+ *  returns a value other than `null`.
  *  
  *  @callback List.FindPredicate
  *  @param {Node} node
  *  @param {number} index
- *  @returns {any} a value or null
+ *  @returns {?any}
+ *  @example
+ *  // Returns the first node with even data, if none returns `null`
+ *  const predicate = function(node, position) {
+ *    if (node.data % 2 === 0) {
+ *      return n
+ *    }
+ *    return null
+ *  }
  */

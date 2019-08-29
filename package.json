@@ -24,7 +24,7 @@
     "url": "https://animesh.ltd"
   },
   "devDependencies": {
-    "docdash": "^1.1.1",
+    "braintree-jsdoc-template": "^3.3.0",
     "jest": "^24.8.0",
     "jsdoc": "^3.6.3"
   },
