@@ -210,8 +210,8 @@ class List {
    *  held at the removed node.
    *  Runtime: O(1)
    *  
-   *  @returns {any} the data held at removed node
    *  @private
+   *  @returns {any} the data held at removed node
    */
   removeFirst() {
     const head = this.first
@@ -231,8 +231,8 @@ class List {
    *  held at the removed node.
    *  Runtime: O(1)
    *  
-   *  @returns {any} the data held at removed node
    *  @private
+   *  @returns {any} the data held at removed node
    */
   removeLast() {
     const tail = this.last

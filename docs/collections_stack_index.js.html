@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      errors - Documentation
+      collections/stack/index.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -88,196 +90,80 @@
   <div id="main">
     
       <h1 class="page-title">
-        errors
+        collections/stack/index.js
       </h1>
     
 
     
+      
 
 <section>
-  <header>
-    
-      
-        
-  </header>
-
   <article>
-    <div class="container-overview">
-      
-        
-          <div class="description">
-            <p>JavaScript built-in error type is purposefully generic and bare-bones.
-I haven't tried souping it up, but this <code>errors</code> module does provide some
-oft-needed error types to better communicate error states and responses.</p>
-<p>You could choose to use these in your application, but do keep in mind
-that error handling is not the focus of this project for now.</p>
-          </div>
-        
-
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="errors_index.js.html">errors/index.js</a>, <a href="errors_index.js.html#line1">line 1</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-
-<h4 class="name" id=".OutOfBoundsError">
-  <span class="type-signature">(static) </span>OutOfBoundsError<span class="type-signature"> :<a href="OutOfBoundsError.html">OutOfBoundsError</a></span>
-</h4>
-
-
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="errors_index.js.html">errors/index.js</a>, <a href="errors_index.js.html#line15">line 15</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-    
-
-    
-
-    
-
-    
+    <pre class="prettyprint source linenums"><code>const List = require("../list")
+
+/**
+ *  Stack is a last-in-first-out (LIFO) data structure that restricts
+ *  the way data is added or removed. Stacks are especially useful for
+ *  implementing depth-first search.
+ *  
+ *  A Stack inserts item to the end of the collection and also removes 
+ *  from the end. Both an array and a linked list would do this in `O(1)`,
+ *  but I've chosen linked list since there's no need for an array's
+ *  random access capabilities in this context.
+ *  
+ *  @class
+ */
+
+class Stack {
+  constructor() {
+    this._items = new List()
+  }
+
+  /**
+   *  Returns the number of items in the stack
+   *  @returns {number}
+   */
+  get depth() {
+    return this._items.count
+  }
+
+  /**
+   *  Add element to the stack. Returns the Stack instance to allow
+   *  the `push()` calls to be chained.
+   *  
+   *  Runtime: `O(1)`
+   * 
+   *  @param {any} item
+   *  @returns {Stack} the Stack instance
+   *  
+   *  @example
+   *  stack.push(10)
+   *    .push(20)
+   *    .push(30)
+   */
+  push(item) {
+    this._items.add(item)
+    return this
+  }
+
+  /**
+   *  Remove element from the stack. Returns the removed value.
+   *  
+   *  Runtime: `O(1)`
+   * 
+   *  @returns {any} Removed value
+   */
+  pop() {
+    return this._items.remove()
+  }
+}
+
+module.exports = Stack
+</code></pre>
   </article>
 </section>
 
-
+    
 
 
   </div>
