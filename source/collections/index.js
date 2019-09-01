@@ -4,8 +4,11 @@
  *  @module collections
  */
 const List = require("./list")
+const Stack = require("./stack")
 
 module.exports = {
   /** @type List */
-  List
+  List,
+  /** @type Stack */
+  Stack
 }
