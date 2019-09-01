@@ -14,8 +14,43 @@ class Queue {
     this._items = new List()
   }
 
+  /**
+   *  Returns the number of items in the queue
+   *  @returns {number}
+   */
   get length() {
     return this._items.count
+  }
+
+  /**
+   *  Adds item to the back of the queue. Return the Queue instance to
+   *  allow chaining of commands.
+   *  
+   *  Runtime: `O(1)`
+   *  
+   *  @param {any} item to add
+   *  @returns {Queue} the Queue instance
+   *  @example
+   *  queue.enqueue(10)
+   *    .enqueue(20)
+   *    .enqueue(30)
+   *    .length   // 3
+   */
+  enqueue(item) {
+    this._items.add(item)
+    return this
+  }
+
+  /**
+   *  Removes item from the front of the queue and returns the removed
+   *  value.
+   *  
+   *  Runtime: `O(1)`
+   *  
+   *  @returns {any} data item removed
+   */
+  dequeue() {
+    return this._items.remove(0)
   }
 }
 
