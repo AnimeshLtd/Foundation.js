@@ -5,10 +5,13 @@
  */
 const List = require("./list")
 const Queue = require("./queue")
+const Stack = require("./stack")
 
 module.exports = {
   /** @type List */
   List,
   /** @type Queue */
-  Queue
+  Queue,
+  /** @type Stack */
+  Stack
 }
