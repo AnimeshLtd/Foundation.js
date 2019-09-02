@@ -106,7 +106,35 @@
       
         
           <div class="description">
-            <p>JavaScript has very poor support for various data structures.</p>
+            <p>JavaScript ships a built-in <code>Array</code> type. This <code>collections</code> module introduces
+three more linear data structures to the mix:</p>
+<ul>
+<li><code>List</code>, a doubly-linked list, with random access</li>
+<li><code>Stack</code>, a last-in-first-out data structure, without random access</li>
+<li><code>Queue</code>, a first-in-first-out data structure, without random access</li>
+</ul>
+<p>Use an <code>Array</code> when:</p>
+<ul>
+<li>data needs to be accessed quickly in random order (using an index)</li>
+<li>data is multi-dimensional, e.g. matrix, vector, tensor etc.</li>
+</ul>
+<p>Use a <code>List</code> when:</p>
+<ul>
+<li>data will be accessed sequentially</li>
+<li>memory is at a premium and must be allocated on a allocate-as-you-go basis</li>
+<li>items need to be added/removed from the extremes of the list in constant time
+<code>O(1)</code></li>
+</ul>
+<p>Use a <code>Stack</code> when:</p>
+<ul>
+<li>data needs to be access last-in, first-out</li>
+<li>one needs to implement a Depth-first search</li>
+</ul>
+<p>Use a <code>Queue</code> when:</p>
+<ul>
+<li>data needs to be access first-in, first-out</li>
+<li>one needs to implement a Breadth-first search</li>
+</ul>
           </div>
         
 
@@ -243,7 +271,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line12">line 12</a>
+          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line34">line 34</a>
         </li>
       </ul>
     </dd>
@@ -306,7 +334,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line14">line 14</a>
+          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line36">line 36</a>
         </li>
       </ul>
     </dd>
@@ -369,7 +397,7 @@
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line16">line 16</a>
+          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line38">line 38</a>
         </li>
       </ul>
     </dd>

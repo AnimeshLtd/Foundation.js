@@ -3,7 +3,7 @@
     "destination": "./docs",
     "encoding": "utf-8",
     "recurse": true,
-    "template": "docs/template"
+    "template": "docs/jsdoc-template"
   },
   "plugins": [
     "plugins/markdown"
