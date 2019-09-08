@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      collections - Documentation
+      tree/index - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -82,13 +82,13 @@
       
     
 
-    <h3>Classes</h3><ul><li id="BinarySearchTree-nav"><a href="BinarySearchTree.html">BinarySearchTree</a><ul class='methods'><li data-type="method" id="BinarySearchTree-add-nav"><a href="BinarySearchTree.html#add">add</a></li><li data-type="method" id="BinarySearchTree-find-nav"><a href="BinarySearchTree.html#find">find</a></li><li data-type="method" id="BinarySearchTree-remove-nav"><a href="BinarySearchTree.html#remove">remove</a></li><li data-type="method" id="BinarySearchTree-toString-nav"><a href="BinarySearchTree.html#toString">toString</a></li></ul></li><li id="BinaryTreeNode-nav"><a href="BinaryTreeNode.html">BinaryTreeNode</a><ul class='methods'><li data-type="method" id="BinaryTreeNode-toJSON-nav"><a href="BinaryTreeNode.html#toJSON">toJSON</a></li></ul></li><li id="List-nav"><a href="List.html">List</a><ul class='methods'><li data-type="method" id="List-add-nav"><a href="List.html#add">add</a></li><li data-type="method" id="List-find-nav"><a href="List.html#find">find</a></li><li data-type="method" id="List-indexOf-nav"><a href="List.html#indexOf">indexOf</a></li><li data-type="method" id="List-itemAtIndex-nav"><a href="List.html#itemAtIndex">itemAtIndex</a></li><li data-type="method" id="List-remove-nav"><a href="List.html#remove">remove</a></li></ul></li><li id="Node-nav"><a href="Node.html">Node</a></li><li id="OutOfBoundsError-nav"><a href="OutOfBoundsError.html">OutOfBoundsError</a></li><li id="Queue-nav"><a href="Queue.html">Queue</a><ul class='methods'><li data-type="method" id="Queue-dequeue-nav"><a href="Queue.html#dequeue">dequeue</a></li><li data-type="method" id="Queue-enqueue-nav"><a href="Queue.html#enqueue">enqueue</a></li></ul></li><li id="Stack-nav"><a href="Stack.html">Stack</a><ul class='methods'><li data-type="method" id="Stack-pop-nav"><a href="Stack.html#pop">pop</a></li><li data-type="method" id="Stack-push-nav"><a href="Stack.html#push">push</a></li></ul></li><li id="TreeNode-nav"><a href="TreeNode.html">TreeNode</a></li></ul><h3>Modules</h3><ul><li id="algorithms-nav"><a href="module-algorithms.html">algorithms</a></li><li id="collections-nav"><a href="module-collections.html">collections</a></li><li id="errors-nav"><a href="module-errors.html">errors</a></li><li id="trees-nav"><a href="module-trees.html">trees</a></li></ul>
+    <h3>Classes</h3><ul><li id="BinarySearchTree-nav"><a href="BinarySearchTree.html">BinarySearchTree</a><ul class='methods'><li data-type="method" id="BinarySearchTree-add-nav"><a href="BinarySearchTree.html#add">add</a></li><li data-type="method" id="BinarySearchTree-find-nav"><a href="BinarySearchTree.html#find">find</a></li><li data-type="method" id="BinarySearchTree-remove-nav"><a href="BinarySearchTree.html#remove">remove</a></li></ul></li><li id="BinaryTreeNode-nav"><a href="BinaryTreeNode.html">BinaryTreeNode</a></li><li id="List-nav"><a href="List.html">List</a><ul class='methods'><li data-type="method" id="List-add-nav"><a href="List.html#add">add</a></li><li data-type="method" id="List-find-nav"><a href="List.html#find">find</a></li><li data-type="method" id="List-indexOf-nav"><a href="List.html#indexOf">indexOf</a></li><li data-type="method" id="List-itemAtIndex-nav"><a href="List.html#itemAtIndex">itemAtIndex</a></li><li data-type="method" id="List-remove-nav"><a href="List.html#remove">remove</a></li></ul></li><li id="Node-nav"><a href="Node.html">Node</a></li><li id="OutOfBoundsError-nav"><a href="OutOfBoundsError.html">OutOfBoundsError</a></li><li id="Queue-nav"><a href="Queue.html">Queue</a><ul class='methods'><li data-type="method" id="Queue-dequeue-nav"><a href="Queue.html#dequeue">dequeue</a></li><li data-type="method" id="Queue-enqueue-nav"><a href="Queue.html#enqueue">enqueue</a></li></ul></li><li id="Stack-nav"><a href="Stack.html">Stack</a><ul class='methods'><li data-type="method" id="Stack-pop-nav"><a href="Stack.html#pop">pop</a></li><li data-type="method" id="Stack-push-nav"><a href="Stack.html#push">push</a></li></ul></li><li id="TreeNode-nav"><a href="TreeNode.html">TreeNode</a></li></ul><h3>Modules</h3><ul><li id="algorithms-nav"><a href="module-algorithms.html">algorithms</a></li><li id="collections-nav"><a href="module-collections.html">collections</a></li><li id="errors-nav"><a href="module-errors.html">errors</a></li><li id="tree_index-nav"><a href="module-tree_index.html">tree/index</a></li></ul>
   </nav>
 
   <div id="main">
     
       <h1 class="page-title">
-        collections
+        tree/index
       </h1>
     
 
@@ -106,35 +106,24 @@
       
         
           <div class="description">
-            <p>JavaScript ships a built-in <code>Array</code> type. This <code>collections</code> module introduces
-three more linear data structures to the mix:</p>
+            <p>A tree is a non-linear data structure where a node can have zero or more
+connections. The topmost node in a tree is called <strong>root</strong>. The linked
+nodes to the root are called <strong>children</strong> or <strong>descendants</strong>. A node without
+any children is called a <strong>leaf</strong> or <strong>terminal node</strong>. All nodes except
+for the leaf and root node are called <strong>internal nodes</strong>.</p>
+<p>The <strong>height of a tree</strong> is the distance (edge count) from the farthest
+leaf to the root. The <strong>depth of a tree</strong> is the distance from the root
+to the farthest leaf.</p>
+<p>The <strong>height of a node</strong> is obtained by counting the edges (connections)
+between the node and the most distant leaf.</p>
+<p>There are certain constraints a Tree structure must observe:</p>
 <ul>
-<li><code>List</code>, a doubly-linked list, with random access</li>
-<li><code>Stack</code>, a last-in-first-out data structure, without random access</li>
-<li><code>Queue</code>, a first-in-first-out data structure, without random access</li>
+<li>It can't have a circular loop. That would be a Graph[Graph]</li>
+<li>A node can't have more than two parents. That too would be a Graph[Graph]</li>
+<li>It must have only one root.</li>
+<li>It can't have branches not connected to the root or its descendants.</li>
 </ul>
-<p>Use an <code>Array</code> when:</p>
-<ul>
-<li>data needs to be accessed quickly in random order (using an index)</li>
-<li>data is multi-dimensional, e.g. matrix, vector, tensor etc.</li>
-</ul>
-<p>Use a <code>List</code> when:</p>
-<ul>
-<li>data will be accessed sequentially</li>
-<li>memory is at a premium and must be allocated on a allocate-as-you-go basis</li>
-<li>items need to be added/removed from the extremes of the list in constant time
-<code>O(1)</code></li>
-</ul>
-<p>Use a <code>Stack</code> when:</p>
-<ul>
-<li>data needs to be access last-in, first-out</li>
-<li>one needs to implement a Depth-first search</li>
-</ul>
-<p>Use a <code>Queue</code> when:</p>
-<ul>
-<li>data needs to be access first-in, first-out</li>
-<li>one needs to implement a Breadth-first search</li>
-</ul>
+<p>A tree where each node has at most two children is called a <strong>binary tree</strong>.</p>
           </div>
         
 
@@ -184,7 +173,7 @@ three more linear data structures to the mix:</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line1">line 1</a>
+          <a href="tree_index.js.html">tree/index.js</a>, <a href="tree_index.js.html#line1">line 1</a>
         </li>
       </ul>
     </dd>
@@ -230,8 +219,8 @@ three more linear data structures to the mix:</p>
         
             
 
-<h4 class="name" id=".List">
-  <span class="type-signature">(static) </span>List<span class="type-signature"> :<a href="List.html">List</a></span>
+<h4 class="name" id=".BinarySearchTree">
+  <span class="type-signature">(static) </span>BinarySearchTree<span class="type-signature"> :<a href="BinarySearchTree.html">BinarySearchTree</a></span>
 </h4>
 
 
@@ -271,133 +260,7 @@ three more linear data structures to the mix:</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line34">line 34</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-            
-
-<h4 class="name" id=".Queue">
-  <span class="type-signature">(static) </span>Queue<span class="type-signature"> :<a href="Queue.html">Queue</a></span>
-</h4>
-
-
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line36">line 36</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-            
-
-<h4 class="name" id=".Stack">
-  <span class="type-signature">(static) </span>Stack<span class="type-signature"> :<a href="Stack.html">Stack</a></span>
-</h4>
-
-
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="collections_index.js.html">collections/index.js</a>, <a href="collections_index.js.html#line38">line 38</a>
+          <a href="tree_index.js.html">tree/index.js</a>, <a href="tree_index.js.html#line30">line 30</a>
         </li>
       </ul>
     </dd>

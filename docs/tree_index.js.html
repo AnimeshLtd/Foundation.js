@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Home - Documentation
+      tree/index.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -51,14 +53,14 @@
 
   <div class="top-nav-wrapper">
     <ul>
-      <li  class="active" >
+      <li >
         <a href="index.html">
           
-          
-            <svg fill="#0095dd" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <svg fill="#6D6D6D" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
               <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
               <path d="M0 0h24v24H0z" fill="none"/>
             </svg>
+          
           
         </a>
       </li>
@@ -87,24 +89,50 @@
 
   <div id="main">
     
+      <h1 class="page-title">
+        tree/index.js
+      </h1>
+    
 
     
       
 
+<section>
+  <article>
+    <pre class="prettyprint source linenums"><code>/**
+ *  A tree is a non-linear data structure where a node can have zero or more
+ *  connections. The topmost node in a tree is called **root**. The linked
+ *  nodes to the root are called **children** or **descendants**. A node without
+ *  any children is called a **leaf** or **terminal node**. All nodes except 
+ *  for the leaf and root node are called **internal nodes**.
+ *  
+ *  The **height of a tree** is the distance (edge count) from the farthest
+ *  leaf to the root. The **depth of a tree** is the distance from the root 
+ *  to the farthest leaf.
+ *  
+ *  The **height of a node** is obtained by counting the edges (connections)
+ *  between the node and the most distant leaf.
+ * 
+ *  There are certain constraints a Tree structure must observe:
+ *  - It can't have a circular loop. That would be a {@link Graph}[Graph]
+ *  - A node can't have more than two parents. That too would be a {@link Graph}[Graph]
+ *  - It must have only one root.
+ *  - It can't have branches not connected to the root or its descendants.
+ * 
+ *  A tree where each node has at most two children is called a **binary tree**.
+ *  
+ *  @module trees
+ */
 
+const BinarySearchTree = require("./bst")
 
-    
-
-      
-
-
-  <section class="readme">
-    <article>
-      <h1>Foundation</h1>
-<p>The missing JavaScript standard library</p>
-    </article>
-  </section>
-
+module.exports = {
+  /** @type BinarySearchTree */
+  BinarySearchTree
+}
+</code></pre>
+  </article>
+</section>
 
     
 
