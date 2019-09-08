@@ -8,6 +8,9 @@ describe("Tree ◊ Binary Search Tree", function() {
   it("should add left and right",             testAddLeftRight)
   it("should not create duplicate nodes",     testAddDuplicate)
 
+  it("should get maximum value of tree",      testMax)
+  it("should get minimum value of tree",      testMin)
+
   it("should return node if search passes",   testFind)
   it("should return null if search fails",    testFindFail)
 
@@ -60,6 +63,24 @@ function testAddDuplicate() {
   tree.add(5)
   expect(tree.count).toBe(3)
   expect(tree.toString()).toMatch(`{"count":3,"nodes":{"data":5,"metadata":{"copies":3}}}`)
+}
+
+function testMax() {
+  const tree = new BinarySearchTree()
+  tree.add(50)
+  tree.add(100)
+  tree.add(21)
+  tree.add(81)
+  expect(tree.max).toBe(100)
+}
+
+function testMin() {
+  const tree = new BinarySearchTree()
+  tree.add(50)
+  tree.add(100)
+  tree.add(21)
+  tree.add(81)
+  expect(tree.min).toBe(21)
 }
 
 function testFind() {

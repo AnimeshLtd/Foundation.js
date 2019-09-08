@@ -137,7 +137,7 @@ class BinarySearchTree {
    *  @returns {BinaryTreeNode} smallest node
    */
   get min() {
-    return this.getLeftmost()
+    return this.getLeftmost().data
   }
 
   /**
@@ -145,7 +145,7 @@ class BinarySearchTree {
    *  @returns {BinaryTreeNode} largest node
    */
   get max() {
-    return this.getRightmost()
+    return this.getRightmost().data
   }
 
   /**
@@ -319,18 +319,19 @@ class BinarySearchTree {
 
   /** @private */
   getRightmost(node = this._root) {
-    if (!node || !node.right) {
+    if (!node || !node.rightChild) {
       return node
     }
-    return this.getRightmost(node.right)
+    return this.getRightmost(node.rightChild)
   }
 
   /** @private */
   getLeftmost(node = this._root) {
-    if (!node || !node.left) {
+    if (!node || !node.leftChild) {
+
       return node
     }
-    return this.getLeftmost(node.left)
+    return this.getLeftmost(node.leftChild)
   }
 }
 

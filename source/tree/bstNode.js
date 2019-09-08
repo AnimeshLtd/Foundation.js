@@ -68,6 +68,7 @@ class BinaryTreeNode {
     this._right = node
   }
 
+  
   /**
    *  Returns an object literal representation of the node.
    *  @returns {object}
