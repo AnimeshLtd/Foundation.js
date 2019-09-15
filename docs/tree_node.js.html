@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      algorithms/index.js - Documentation
+      tree/node.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -90,7 +90,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        algorithms/index.js
+        tree/node.js
       </h1>
     
 
@@ -100,10 +100,15 @@
 <section>
   <article>
     <pre class="prettyprint source linenums"><code>/**
- *  JavaScript has very poor support for various algorithms.
- * 
- *  @module algorithms
+ *  A tree is a non-linear data structure made up of nodes, where each node
+ *  can have zero or more children.
  */
+class TreeNode {
+  constructor(data) {
+    this.data = data
+    this.descendants = []
+  }
+}
 </code></pre>
   </article>
 </section>
