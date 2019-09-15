@@ -1,5 +1,6 @@
 const BinaryTreeNode = require("./bstNode")
 const Queue = require("../collections").Queue
+const Stack = require("../collections").Stack
 
 /**
  *  Binary Search Tree is a specialised binary tree where the children
@@ -218,18 +219,10 @@ class BinarySearchTree {
   }
 
   /**
-   *  
-   *  @param {SearchMode} [mode=BreadthFirst] search algorithm to use
-   */
-  search(mode = "breadth-first") {
-
-  }
-
-  /**
    *  Breadth-first searches the tree level by level starting at the root. It visits
    *  the root, then the children of the root, then their children and so on. So for
    *  a tree of shape:
-   *  
+   *  ```
    *         10
    *        /  \
    *      5    30
@@ -237,10 +230,12 @@ class BinarySearchTree {
    *    4    15   40
    *   /
    *  3
-   *  
+   *  ```
    *  Breadth-first traversal would look like: 10, 5, 30, 4, 15, 40, 3
+   * 
+   *  **Use breadth-first search when the node you are looking for is likely to be**
+   *  **nearby the root.**
    *  
-   *  @private
    *  @yields {BinaryTreeNode}
    */
   * searchBreadthFirst() {
@@ -250,15 +245,118 @@ class BinarySearchTree {
     while(queue.length > 0) {
       const node = queue.dequeue()
       yield node
-
       if (node.leftChild) {
         queue.enqueue(node.leftChild)
       }
-
       if (node.rightChild) {
         queue.enqueue(node.rightChild)
       }
     }
+  }
+
+  /**
+   *  Depth-first search starts from the root and goes as deep as it can
+   *  until it finds a leaf node. Then it visits all the remaining nodes
+   *  it encountered along the path, going as deep as possible in each
+   *  branch.
+   * 
+   *  For a tree of shape:
+   *  ```
+   *         10
+   *        /  \
+   *      5    30
+   *     /    /  \
+   *    4    15   40
+   *   /
+   *  3
+   *  ```
+   *  Depth-first traversal would look like:
+   *  - In-order (left-root-right) -> 3, 4, 5, 10, 15, 30, 40
+   *    see [traverseInOrderly]{@link BinarySearchTree#traverseInOrderly}
+   *  - Pre-order (root-left-right) -> 10, 5, 4, 3, 30, 15, 40
+   *    see [traversePreOrderly]{@link BinarySearchTree#traversePreOrderly}
+   *  - Post-order (left-right-root) -> 3, 4, 5, 15, 40, 30, 10
+   *    see [traversePostOrderly]{@link BinarySearchTree#traversePostOrderly}
+   *  
+   *  This function returns result similar to a pre-order traversal but uses a 
+   *  [Stack]{@link Stack} to achieve that. 
+   * 
+   *  **Use depth-first search when the node you are looking for is likely**
+   *  **to be far from the root.**
+   *  
+   *  @yields {BinaryTreeNode}
+   */
+  * searchDepthFirst() {
+    const stack = new Stack()
+    stack.push(this._root)
+
+    while (stack.depth > 0) {
+      const node = stack.pop()
+      yield node
+
+      if (node.rightChild) {
+        stack.push(node.rightChild)
+      }
+      if (node.leftChild) {
+        stack.push(node.leftChild)
+      }
+    }
+  }
+
+  /**
+   *  For a binary tree, an in-order traversal returns values sorted in ascending
+   *  order.
+   *  
+   *  @param {BinaryTreeNode} node
+   *  @yields {BinaryTreeNode}
+   */
+  * traverseInOrderly(node = this._root) {
+    if (node && node.leftChild) {
+      yield* this.traverseInOrderly(node.leftChild)
+    }
+    yield node
+    if (node && node.rightChild) {
+      yield* this.traverseInOrderly(node.rightChild)
+    }
+  }
+
+  /**
+   *  For a binary tree, a pre-order traversal creates a copy of the tree. If the
+   *  tree is used as an expression tree, a pre-order traversal will yield a prefix
+   *  expression of the tree (as used in the [Polish notation](https://en.wikipedia.org/wiki/Polish_notation)).
+   * 
+   *  @param {BinaryTreeNode} node 
+   *  @yields {BinaryTreeNode}
+   */
+  * traversePreOrderly(node = this._root) {
+    yield node
+    
+    if (node.leftChild) {
+      yield* this.traversePreOrderly(node.leftChild)
+    }
+    if (node.rightChild) {
+      yield* this.traversePreOrderly(node.rightChild)
+    }
+  }
+
+  /**
+   *  Post-order traversal is used to:
+   *  - delete the tree because it visits the children before removing
+   *    the parent
+   *  - get the postfix expression of an expression tree, as in the reverse
+   *    Polish notation
+   * 
+   *  @param {BinaryTreeNode} node
+   *  @yields {BinaryTreeNode} 
+   */
+  * traversePostOrderly(node = this._root) {
+    if (node.leftChild) {
+      yield* this.traversePostOrderly(node.leftChild)
+    }
+    if (node.rightChild) {
+      yield* this.traversePostOrderly(node.rightChild)
+    }
+    yield node
   }
 
   /** @private */

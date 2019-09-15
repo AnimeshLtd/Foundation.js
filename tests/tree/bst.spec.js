@@ -1,24 +1,30 @@
 const BinarySearchTree = require("../../source/tree").BinarySearchTree
 
 describe("Tree ◊ Binary Search Tree", function() {
-  it("should initialise an empty tree",       testInit)
-  it("should add an item",                    testAdd)
-  it("should add lower value to the left",    testAddLeft)
-  it("should add higher value to the right",  testAddRight)
-  it("should add left and right",             testAddLeftRight)
-  it("should not create duplicate nodes",     testAddDuplicate)
+  it("should initialise an empty tree",                   testInit)
+  it("should add an item",                                testAdd)
+  it("should add lower value to the left",                testAddLeft)
+  it("should add higher value to the right",              testAddRight)
+  it("should add left and right",                         testAddLeftRight)
+  it("should not create duplicate nodes",                 testAddDuplicate)
 
-  it("should get maximum value of tree",      testMax)
-  it("should get minimum value of tree",      testMin)
+  it("should get maximum value of tree",                  testMax)
+  it("should get minimum value of tree",                  testMin)
 
-  it("should return node if search passes",   testFind)
-  it("should return null if search fails",    testFindFail)
+  it("should return node if search passes",               testFind)
+  it("should return null if search fails",                testFindFail)
 
   it("should remove all copies of node by default",       testRemove)
   it("should remove only some copies of node if asked",   testRemoveSome)
   it("should remove the node if too many copies asked",   testRemoveTooMany)
 
   it("should be able to traverse the tree breadth-first", testBreadthFirst)
+  it("should be able to traverse the tree depth-first",   testDepthFirst)
+
+  it("should be able to traverse the tree in-orderly",    testTraverseInOrderly)
+  it("should be able to traverse the tree pre-orderly",   testTraversePreOrderly)
+  it("should be able to traverse the tree post-orderly",  testTraversePostOrderly)
+
 })
 
 function testInit() {
@@ -160,5 +166,86 @@ function testBreadthFirst() {
   tree.add(40)
   tree.add(3)
 
-  console.log(tree.toString())
+  const result = []
+  for (node of tree.searchBreadthFirst()) {
+    result.push(node.data)
+  }
+
+  expect(result).toStrictEqual([10, 5, 30, 4, 15, 40, 3])
+}
+
+function testDepthFirst() {
+  const tree = new BinarySearchTree()
+
+  tree.add(10)
+  tree.add(5)
+  tree.add(30)
+  tree.add(4)
+  tree.add(15)
+  tree.add(40)
+  tree.add(3)
+
+  const result = []
+  for (node of tree.searchDepthFirst()) {
+    result.push(node.data)
+  }
+
+  expect(result).toStrictEqual([10, 5, 4, 3, 30, 15, 40])
+}
+
+function testTraverseInOrderly() {
+  const tree = new BinarySearchTree()
+
+  tree.add(10)
+  tree.add(5)
+  tree.add(30)
+  tree.add(4)
+  tree.add(15)
+  tree.add(40)
+  tree.add(3)
+
+  const result = []
+  for (node of tree.traverseInOrderly()) {
+    result.push(node.data)
+  }
+
+  expect(result).toStrictEqual([3, 4, 5, 10, 15, 30, 40])
+}
+
+function testTraversePreOrderly() {
+  const tree = new BinarySearchTree()
+
+  tree.add(10)
+  tree.add(5)
+  tree.add(30)
+  tree.add(4)
+  tree.add(15)
+  tree.add(40)
+  tree.add(3)
+
+  const result = []
+  for (node of tree.traversePreOrderly()) {
+    result.push(node.data)
+  }
+
+  expect(result).toStrictEqual([10, 5, 4, 3, 30, 15, 40])
+}
+
+function testTraversePostOrderly() {
+  const tree = new BinarySearchTree()
+
+  tree.add(10)
+  tree.add(5)
+  tree.add(30)
+  tree.add(4)
+  tree.add(15)
+  tree.add(40)
+  tree.add(3)
+
+  const result = []
+  for (node of tree.traversePostOrderly()) {
+    result.push(node.data)
+  }
+
+  expect(result).toStrictEqual([3, 4, 5, 15, 40, 30, 10])
 }

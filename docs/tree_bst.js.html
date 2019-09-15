@@ -84,7 +84,7 @@
       
     
 
-    <h3>Classes</h3><ul><li id="BinarySearchTree-nav"><a href="BinarySearchTree.html">BinarySearchTree</a><ul class='methods'><li data-type="method" id="BinarySearchTree-add-nav"><a href="BinarySearchTree.html#add">add</a></li><li data-type="method" id="BinarySearchTree-find-nav"><a href="BinarySearchTree.html#find">find</a></li><li data-type="method" id="BinarySearchTree-remove-nav"><a href="BinarySearchTree.html#remove">remove</a></li><li data-type="method" id="BinarySearchTree-toString-nav"><a href="BinarySearchTree.html#toString">toString</a></li></ul></li><li id="BinaryTreeNode-nav"><a href="BinaryTreeNode.html">BinaryTreeNode</a><ul class='methods'><li data-type="method" id="BinaryTreeNode-toJSON-nav"><a href="BinaryTreeNode.html#toJSON">toJSON</a></li></ul></li><li id="List-nav"><a href="List.html">List</a><ul class='methods'><li data-type="method" id="List-add-nav"><a href="List.html#add">add</a></li><li data-type="method" id="List-find-nav"><a href="List.html#find">find</a></li><li data-type="method" id="List-indexOf-nav"><a href="List.html#indexOf">indexOf</a></li><li data-type="method" id="List-itemAtIndex-nav"><a href="List.html#itemAtIndex">itemAtIndex</a></li><li data-type="method" id="List-remove-nav"><a href="List.html#remove">remove</a></li></ul></li><li id="Node-nav"><a href="Node.html">Node</a></li><li id="OutOfBoundsError-nav"><a href="OutOfBoundsError.html">OutOfBoundsError</a></li><li id="Queue-nav"><a href="Queue.html">Queue</a><ul class='methods'><li data-type="method" id="Queue-dequeue-nav"><a href="Queue.html#dequeue">dequeue</a></li><li data-type="method" id="Queue-enqueue-nav"><a href="Queue.html#enqueue">enqueue</a></li></ul></li><li id="Stack-nav"><a href="Stack.html">Stack</a><ul class='methods'><li data-type="method" id="Stack-pop-nav"><a href="Stack.html#pop">pop</a></li><li data-type="method" id="Stack-push-nav"><a href="Stack.html#push">push</a></li></ul></li><li id="TreeNode-nav"><a href="TreeNode.html">TreeNode</a></li></ul><h3>Modules</h3><ul><li id="algorithms-nav"><a href="module-algorithms.html">algorithms</a></li><li id="collections-nav"><a href="module-collections.html">collections</a></li><li id="errors-nav"><a href="module-errors.html">errors</a></li><li id="trees-nav"><a href="module-trees.html">trees</a></li></ul>
+    <h3>Classes</h3><ul><li id="BinarySearchTree-nav"><a href="BinarySearchTree.html">BinarySearchTree</a><ul class='methods'><li data-type="method" id="BinarySearchTree-add-nav"><a href="BinarySearchTree.html#add">add</a></li><li data-type="method" id="BinarySearchTree-find-nav"><a href="BinarySearchTree.html#find">find</a></li><li data-type="method" id="BinarySearchTree-remove-nav"><a href="BinarySearchTree.html#remove">remove</a></li><li data-type="method" id="BinarySearchTree-searchBreadthFirst-nav"><a href="BinarySearchTree.html#searchBreadthFirst">searchBreadthFirst</a></li><li data-type="method" id="BinarySearchTree-searchDepthFirst-nav"><a href="BinarySearchTree.html#searchDepthFirst">searchDepthFirst</a></li><li data-type="method" id="BinarySearchTree-toString-nav"><a href="BinarySearchTree.html#toString">toString</a></li><li data-type="method" id="BinarySearchTree-traverseInOrderly-nav"><a href="BinarySearchTree.html#traverseInOrderly">traverseInOrderly</a></li><li data-type="method" id="BinarySearchTree-traversePostOrderly-nav"><a href="BinarySearchTree.html#traversePostOrderly">traversePostOrderly</a></li><li data-type="method" id="BinarySearchTree-traversePreOrderly-nav"><a href="BinarySearchTree.html#traversePreOrderly">traversePreOrderly</a></li></ul></li><li id="BinaryTreeNode-nav"><a href="BinaryTreeNode.html">BinaryTreeNode</a><ul class='methods'><li data-type="method" id="BinaryTreeNode-toJSON-nav"><a href="BinaryTreeNode.html#toJSON">toJSON</a></li></ul></li><li id="List-nav"><a href="List.html">List</a><ul class='methods'><li data-type="method" id="List-add-nav"><a href="List.html#add">add</a></li><li data-type="method" id="List-find-nav"><a href="List.html#find">find</a></li><li data-type="method" id="List-indexOf-nav"><a href="List.html#indexOf">indexOf</a></li><li data-type="method" id="List-itemAtIndex-nav"><a href="List.html#itemAtIndex">itemAtIndex</a></li><li data-type="method" id="List-remove-nav"><a href="List.html#remove">remove</a></li></ul></li><li id="Node-nav"><a href="Node.html">Node</a></li><li id="OutOfBoundsError-nav"><a href="OutOfBoundsError.html">OutOfBoundsError</a></li><li id="Queue-nav"><a href="Queue.html">Queue</a><ul class='methods'><li data-type="method" id="Queue-dequeue-nav"><a href="Queue.html#dequeue">dequeue</a></li><li data-type="method" id="Queue-enqueue-nav"><a href="Queue.html#enqueue">enqueue</a></li></ul></li><li id="Stack-nav"><a href="Stack.html">Stack</a><ul class='methods'><li data-type="method" id="Stack-pop-nav"><a href="Stack.html#pop">pop</a></li><li data-type="method" id="Stack-push-nav"><a href="Stack.html#push">push</a></li></ul></li><li id="TreeNode-nav"><a href="TreeNode.html">TreeNode</a></li></ul><h3>Modules</h3><ul><li id="algorithms-nav"><a href="module-algorithms.html">algorithms</a></li><li id="collections-nav"><a href="module-collections.html">collections</a></li><li id="errors-nav"><a href="module-errors.html">errors</a></li><li id="trees-nav"><a href="module-trees.html">trees</a></li></ul>
   </nav>
 
   <div id="main">
@@ -100,6 +100,8 @@
 <section>
   <article>
     <pre class="prettyprint source linenums"><code>const BinaryTreeNode = require("./bstNode")
+const Queue = require("../collections").Queue
+const Stack = require("../collections").Stack
 
 /**
  *  Binary Search Tree is a specialised binary tree where the children
@@ -315,6 +317,147 @@ class BinarySearchTree {
       return parent.rightChild
     }
     return parent.leftChild
+  }
+
+  /**
+   *  Breadth-first searches the tree level by level starting at the root. It visits
+   *  the root, then the children of the root, then their children and so on. So for
+   *  a tree of shape:
+   *  ```
+   *         10
+   *        /  \
+   *      5    30
+   *     /    /  \
+   *    4    15   40
+   *   /
+   *  3
+   *  ```
+   *  Breadth-first traversal would look like: 10, 5, 30, 4, 15, 40, 3
+   * 
+   *  **Use breadth-first search when the node you are looking for is likely to be**
+   *  **nearby the root.**
+   *  
+   *  @yields {BinaryTreeNode}
+   */
+  * searchBreadthFirst() {
+    const queue = new Queue()
+    queue.enqueue(this._root)
+
+    while(queue.length > 0) {
+      const node = queue.dequeue()
+      yield node
+      if (node.leftChild) {
+        queue.enqueue(node.leftChild)
+      }
+      if (node.rightChild) {
+        queue.enqueue(node.rightChild)
+      }
+    }
+  }
+
+  /**
+   *  Depth-first search starts from the root and goes as deep as it can
+   *  until it finds a leaf node. Then it visits all the remaining nodes
+   *  it encountered along the path, going as deep as possible in each
+   *  branch.
+   * 
+   *  For a tree of shape:
+   *  ```
+   *         10
+   *        /  \
+   *      5    30
+   *     /    /  \
+   *    4    15   40
+   *   /
+   *  3
+   *  ```
+   *  Depth-first traversal would look like:
+   *  - In-order (left-root-right) -> 3, 4, 5, 10, 15, 30, 40
+   *    see [traverseInOrderly]{@link BinarySearchTree#traverseInOrderly}
+   *  - Pre-order (root-left-right) -> 10, 5, 4, 3, 30, 15, 40
+   *    see [traversePreOrderly]{@link BinarySearchTree#traversePreOrderly}
+   *  - Post-order (left-right-root) -> 3, 4, 5, 15, 40, 30, 10
+   *    see [traversePostOrderly]{@link BinarySearchTree#traversePostOrderly}
+   *  
+   *  This function returns result similar to a pre-order traversal but uses a 
+   *  [Stack]{@link Stack} to achieve that. 
+   * 
+   *  **Use depth-first search when the node you are looking for is likely**
+   *  **to be far from the root.**
+   *  
+   *  @yields {BinaryTreeNode}
+   */
+  * searchDepthFirst() {
+    const stack = new Stack()
+    stack.push(this._root)
+
+    while (stack.depth > 0) {
+      const node = stack.pop()
+      yield node
+
+      if (node.rightChild) {
+        stack.push(node.rightChild)
+      }
+      if (node.leftChild) {
+        stack.push(node.leftChild)
+      }
+    }
+  }
+
+  /**
+   *  For a binary tree, an in-order traversal returns values sorted in ascending
+   *  order.
+   *  
+   *  @param {BinaryTreeNode} node
+   *  @yields {BinaryTreeNode}
+   */
+  * traverseInOrderly(node = this._root) {
+    if (node &amp;&amp; node.leftChild) {
+      yield* this.traverseInOrderly(node.leftChild)
+    }
+    yield node
+    if (node &amp;&amp; node.rightChild) {
+      yield* this.traverseInOrderly(node.rightChild)
+    }
+  }
+
+  /**
+   *  For a binary tree, a pre-order traversal creates a copy of the tree. If the
+   *  tree is used as an expression tree, a pre-order traversal will yield a prefix
+   *  expression of the tree (as used in the [Polish notation](https://en.wikipedia.org/wiki/Polish_notation)).
+   * 
+   *  @param {BinaryTreeNode} node 
+   *  @yields {BinaryTreeNode}
+   */
+  * traversePreOrderly(node = this._root) {
+    yield node
+    
+    if (node.leftChild) {
+      yield* this.traversePreOrderly(node.leftChild)
+    }
+    if (node.rightChild) {
+      yield* this.traversePreOrderly(node.rightChild)
+    }
+  }
+
+  /**
+   *  Post-order traversal is used to:
+   *  - delete the tree because it visits the children before removing
+   *    the parent
+   *  - get the postfix expression of an expression tree, as in the reverse
+   *    Polish notation
+   * 
+   *  @param {BinaryTreeNode} node
+   *  @yields {BinaryTreeNode} 
+   */
+  * traversePostOrderly(node = this._root) {
+    if (node.leftChild) {
+      yield* this.traversePostOrderly(node.leftChild)
+    }
+    if (node.rightChild) {
+      yield* this.traversePostOrderly(node.rightChild)
+    }
+    yield node
   }
 
   /** @private */
