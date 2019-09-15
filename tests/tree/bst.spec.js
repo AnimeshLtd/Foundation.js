@@ -17,6 +17,8 @@ describe("Tree ◊ Binary Search Tree", function() {
   it("should remove all copies of node by default",       testRemove)
   it("should remove only some copies of node if asked",   testRemoveSome)
   it("should remove the node if too many copies asked",   testRemoveTooMany)
+
+  it("should be able to traverse the tree breadth-first", testBreadthFirst)
 })
 
 function testInit() {
@@ -145,4 +147,18 @@ function testRemoveTooMany() {
   expect(node.data).toBe(10)
   console.log
   expect(tree.toString()).toBe(`{"count":2,"nodes":{"data":5,"metadata":{"copies":1},"children":{"left":{"data":1,"metadata":{"copies":1}}}}}`)
+}
+
+function testBreadthFirst() {
+  const tree = new BinarySearchTree()
+
+  tree.add(10)
+  tree.add(5)
+  tree.add(30)
+  tree.add(4)
+  tree.add(15)
+  tree.add(40)
+  tree.add(3)
+
+  console.log(tree.toString())
 }

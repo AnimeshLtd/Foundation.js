@@ -1,4 +1,5 @@
 const BinaryTreeNode = require("./bstNode")
+const Queue = require("../collections").Queue
 
 /**
  *  Binary Search Tree is a specialised binary tree where the children
@@ -214,6 +215,50 @@ class BinarySearchTree {
       return parent.rightChild
     }
     return parent.leftChild
+  }
+
+  /**
+   *  
+   *  @param {SearchMode} [mode=BreadthFirst] search algorithm to use
+   */
+  search(mode = "breadth-first") {
+
+  }
+
+  /**
+   *  Breadth-first searches the tree level by level starting at the root. It visits
+   *  the root, then the children of the root, then their children and so on. So for
+   *  a tree of shape:
+   *  
+   *         10
+   *        /  \
+   *      5    30
+   *     /    /  \
+   *    4    15   40
+   *   /
+   *  3
+   *  
+   *  Breadth-first traversal would look like: 10, 5, 30, 4, 15, 40, 3
+   *  
+   *  @private
+   *  @yields {BinaryTreeNode}
+   */
+  * searchBreadthFirst() {
+    const queue = new Queue()
+    queue.enqueue(this._root)
+
+    while(queue.length > 0) {
+      const node = queue.dequeue()
+      yield node
+
+      if (node.leftChild) {
+        queue.enqueue(node.leftChild)
+      }
+
+      if (node.rightChild) {
+        queue.enqueue(node.rightChild)
+      }
+    }
   }
 
   /** @private */
