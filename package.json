@@ -5,7 +5,7 @@
   "license": "MIT",
   "main": "source/foundation.js",
   "scripts": {
-    "ci": "npm install --only=dev && jest",
+    "ci": "npm install && jest",
     "test": "jest",
     "docs": "jsdoc -c jsdoc.json"
   },
@@ -31,5 +31,8 @@
   "jest": {
     "errorOnDeprecated": true,
     "verbose": true
+  },
+  "dependencies": {
+    "lodash.isequal": "^4.5.0"
   }
 }
