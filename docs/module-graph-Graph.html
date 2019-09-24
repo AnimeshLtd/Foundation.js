@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      HashMap - Documentation
+      Graph - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -88,7 +88,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        HashMap
+        Graph
       </h1>
     
 
@@ -99,29 +99,22 @@
     
       <h2>
         
-        HashMap
+          <span class="ancestors"><a href="module-graph.html">graph</a>~</span>
+        
+        Graph
         
       </h2>
 
       
         <div class="class-description">
-          <p>A <code>HashMap</code> is composed of two things:</p>
-<ul>
-<li>a <em>hash function</em>, and</li>
-<li>a collection (typically an array) to store values</li>
-</ul>
-<p>The hash function transforms the keys (e.g. length, width etc.) into a number which
-is used as an array index. The values are placed in a <strong>buckets</strong> array at the hashed
-index. A perfect hash function is one that assigns a unique array index for each
-unique key. It's not practical and memory wasteful to have a perfect hash function.
-This <code>HashMap</code> implements a cost-effective hash function instead.</p>
-<p>What happens if two different keys map to the same index? Then we have a <strong>collision</strong>.
-In this case, the value at the index will be an array of values instead of a single value.
-Naturally, this reduces the search complexity from <code>O(1)</code> to <code>O(n)</code>.</p>
-<p>Collisions can be avoided by having a big bucket size. This <code>HashMap</code> implementation
-re-sizes itself when it is getting full. This avoids collision and keeps memory usage
-to a minimum.</p>
-<p>This structure uses a buckets array where each bucket is a <a href="List.html">List</a>.</p>
+          <p>The connection between two nodes in a graph is called an <strong>edge</strong>.
+Nodes are also referred to as <strong>vertices</strong>.</p>
+<p>A graph can be <strong>directed</strong> or <strong>undirected</strong>. A directed graph
+has edges that allow traversing in one direction only. Whereas edges
+in an undirected graph are two-way and can be traversed freely.</p>
+<p>Graphs can be <strong>cyclic</strong> or <strong>acyclic</strong>. A graph in which you can
+pass through a node more than once is called a cyclic graph. Those
+who don't share this characteristic are acyclic graphs.</p>
         </div>
       
     
@@ -138,19 +131,23 @@ to a minimum.</p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#HashMap">
+    <a class="link-icon" href="#Graph">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="HashMap">
-      <span class="type-signature"></span>new HashMap<span class="signature">(capacity<span class="signature-attributes">opt</span>, rehashThreshold<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
+    <h4 class="name" id="Graph">
+      <span class="type-signature"></span>new Graph<span class="signature">(directed<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
     </h4>
   </span>
 
   
 
 
+
+  <div class="description">
+    <p>Instantiates a graph.</p>
+  </div>
 
 
 
@@ -186,14 +183,14 @@ to a minimum.</p>
     
       <tr>
         
-          <td class="name"><code>capacity</code></td>
+          <td class="name"><code>directed</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      number
+      boolean
     </span>
 
     
@@ -217,60 +214,14 @@ to a minimum.</p>
         
           <td class="default">
             
-              19
+              true
             
           </td>
         
 
         <td class="description last">
-          <p>initial size of the HashMap data array (preferably a
-prime number)</p>
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>rehashThreshold</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      number
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-          <td class="attributes">
-            
-              &lt;optional><br>
-            
-
-            
-
-            
-          </td>
-        
-
-        
-          <td class="default">
-            
-              0.75
-            
-          </td>
-        
-
-        <td class="description last">
-          <p>a rehash is triggered when array reaches this
-occupancy threshold</p>
+          <p>Edge direction. Set to <code>false</code>
+for an undirected graph.</p>
           
         </td>
       </tr>
@@ -314,7 +265,7 @@ occupancy threshold</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line34">line 34</a>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line30">line 30</a>
         </li>
       </ul>
     </dd>
@@ -354,212 +305,6 @@ occupancy threshold</p>
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-
-<h4 class="name" id="count">
-  <span class="type-signature"></span>count<span class="type-signature"></span>
-</h4>
-
-
-
-
-  <div class="description">
-    <p>Returns the number of items in the hash map</p>
-  </div>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line47">line 47</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-            
-
-<h4 class="name" id="keys">
-  <span class="type-signature"></span>keys<span class="type-signature"></span>
-</h4>
-
-
-
-
-  <div class="description">
-    <p>Returns an array of all keys. May or may not be in insertion order.</p>
-  </div>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line77">line 77</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-            
-
-<h4 class="name" id="occupancyFactor">
-  <span class="type-signature"></span>occupancyFactor<span class="type-signature"></span>
-</h4>
-
-
-
-
-  <div class="description">
-    <p>Returns a measure of how full the hash map is, i.e. the ratio between items
-on the map and the total size of the bucket.</p>
-  </div>
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line57">line 57</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-          
-        
-    
 
     
       <h3 class="subsection-title">Methods</h3>
@@ -571,13 +316,13 @@ on the map and the total size of the bucket.</p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#add">
+    <a class="link-icon" href="#addEdge">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="add">
-      <span class="type-signature"></span>add<span class="signature">(key, value)</span><span class="type-signature"> &rarr; {<a href="HashMap.html">HashMap</a>}</span>
+    <h4 class="name" id="addEdge">
+      <span class="type-signature"></span>addEdge<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {Object}</span>
     </h4>
   </span>
 
@@ -586,9 +331,14 @@ on the map and the total size of the bucket.</p>
 
 
   <div class="description">
-    <p>Insert a key/value pair into the map. If the key is already present, replaces
-its value. Runtime: <code>O(1)</code>, in case a rehash is needed <code>O(n)</code>.</p>
-<p>Returns the map instance to allow command chaining.</p>
+    <p>Create a connection between <code>source</code> node and <code>destination</code> node. If the
+graph is undirected, it will also create the connection from <code>destination</code>
+to <code>destination</code>.
+If the nodes don't exist, they will be created anew with values set to
+<code>source</code> and <code>destination</code> respectively.</p>
+<p>Return source/destination node pair as
+<code>{ source: GraphNode, destination: GraphNode }</code></p>
+<p>Runtime: <code>O(1)</code></p>
   </div>
 
 
@@ -621,7 +371,7 @@ its value. Runtime: <code>O(1)</code>, in case a rehash is needed <code>O(n)</co
     
       <tr>
         
-          <td class="name"><code>key</code></td>
+          <td class="name"><code>source</code></td>
         
 
         <td class="type">
@@ -650,7 +400,7 @@ its value. Runtime: <code>O(1)</code>, in case a rehash is needed <code>O(n)</co
     
       <tr>
         
-          <td class="name"><code>value</code></td>
+          <td class="name"><code>destination</code></td>
         
 
         <td class="type">
@@ -715,7 +465,7 @@ its value. Runtime: <code>O(1)</code>, in case a rehash is needed <code>O(n)</co
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line197">line 197</a>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line94">line 94</a>
         </li>
       </ul>
     </dd>
@@ -748,13 +498,13 @@ its value. Runtime: <code>O(1)</code>, in case a rehash is needed <code>O(n)</co
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#delete">
+    <a class="link-icon" href="#addVertex">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="delete">
-      <span class="type-signature"></span>delete<span class="signature">(key)</span><span class="type-signature"></span>
+    <h4 class="name" id="addVertex">
+      <span class="type-signature"></span>addVertex<span class="signature">(data)</span><span class="type-signature"> &rarr; {<a href="GraphNode.html">GraphNode</a>}</span>
     </h4>
   </span>
 
@@ -763,8 +513,9 @@ its value. Runtime: <code>O(1)</code>, in case a rehash is needed <code>O(n)</co
 
 
   <div class="description">
-    <p>Removes the specified key from the map. Runtime <code>O(1)</code>.
-Return the value removed or <code>null</code> if the key wasn't found in the map.</p>
+    <p>Add a vertex to the graph. Returns the new vertex or the existing
+one if it already exists.</p>
+<p>Runtime: <code>O(1)</code></p>
   </div>
 
 
@@ -797,7 +548,7 @@ Return the value removed or <code>null</code> if the key wasn't found in the map
     
       <tr>
         
-          <td class="name"><code>key</code></td>
+          <td class="name"><code>data</code></td>
         
 
         <td class="type">
@@ -862,7 +613,7 @@ Return the value removed or <code>null</code> if the key wasn't found in the map
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line136">line 136</a>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line49">line 49</a>
         </li>
       </ul>
     </dd>
@@ -895,13 +646,13 @@ Return the value removed or <code>null</code> if the key wasn't found in the map
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#get">
+    <a class="link-icon" href="#areNeighbours">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="get">
-      <span class="type-signature"></span>get<span class="signature">(key)</span><span class="type-signature"> &rarr; (nullable) {any}</span>
+    <h4 class="name" id="areNeighbours">
+      <span class="type-signature"></span>areNeighbours<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {boolean}</span>
     </h4>
   </span>
 
@@ -910,9 +661,7 @@ Return the value removed or <code>null</code> if the key wasn't found in the map
 
 
   <div class="description">
-    <p>Get the value for the given <code>key</code>. Runtime is usually <code>O(1)</code> but if there are
-collisions it could be <code>O(n)</code>.</p>
-<p>Returns <code>null</code> if no such key exists in the map.</p>
+    <p>Returns <code>true</code> if two nodes are adjacent to each other.</p>
   </div>
 
 
@@ -945,7 +694,216 @@ collisions it could be <code>O(n)</code>.</p>
     
       <tr>
         
-          <td class="name"><code>key</code></td>
+          <td class="name"><code>source</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>source node's value</p>
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>destination</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>destination node's value</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line144">line 144</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#removeEdge">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="removeEdge">
+      <span class="type-signature"></span>removeEdge<span class="signature">(source, destination)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Remove connection between <code>source</code> node and <code>destination</code> node.
+If the graph is undirected it will also remove the connection from
+<code>destination</code> to <code>destination</code>.</p>
+<p>Returns <code>true</code> if  deletion is successful, <code>false</code> if no such nodes
+exist.</p>
+<p>Runtime: <code>O(n)</code> where n is the number of edges</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>source</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          
+          
+        </td>
+      </tr>
+
+    
+      <tr>
+        
+          <td class="name"><code>destination</code></td>
         
 
         <td class="type">
@@ -1010,7 +968,7 @@ collisions it could be <code>O(n)</code>.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line115">line 115</a>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line122">line 122</a>
         </li>
       </ul>
     </dd>
@@ -1043,13 +1001,13 @@ collisions it could be <code>O(n)</code>.</p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#has">
+    <a class="link-icon" href="#removeVertex">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="has">
-      <span class="type-signature"></span>has<span class="signature">(key)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id="removeVertex">
+      <span class="type-signature"></span>removeVertex<span class="signature">(data)</span><span class="type-signature"> &rarr; (nullable) {any}</span>
     </h4>
   </span>
 
@@ -1058,8 +1016,9 @@ collisions it could be <code>O(n)</code>.</p>
 
 
   <div class="description">
-    <p>Returns a boolean indicating whether an element with the given <code>key</code> exists
-or not. Runtime: <code>O(1)</code></p>
+    <p>Removes vertex with the given <code>data</code> from the graph. Returns the removed
+node's value or <code>null</code> if no such node was found.</p>
+<p>Runtime: <code>O(n)</code> where n = number of vertices + number of edges</p>
   </div>
 
 
@@ -1092,7 +1051,7 @@ or not. Runtime: <code>O(1)</code></p>
     
       <tr>
         
-          <td class="name"><code>key</code></td>
+          <td class="name"><code>data</code></td>
         
 
         <td class="type">
@@ -1157,7 +1116,7 @@ or not. Runtime: <code>O(1)</code></p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line127">line 127</a>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line68">line 68</a>
         </li>
       </ul>
     </dd>
@@ -1190,13 +1149,13 @@ or not. Runtime: <code>O(1)</code></p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#values">
+    <a class="link-icon" href="#searchBreadthFirst">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="values">
-      <span class="type-signature">(generator) </span>values<span class="signature">()</span><span class="type-signature"> &rarr; {Iterator}</span>
+    <h4 class="name" id="searchBreadthFirst">
+      <span class="type-signature">(generator) </span>searchBreadthFirst<span class="signature">(startValue)</span><span class="type-signature"></span>
     </h4>
   </span>
 
@@ -1205,14 +1164,69 @@ or not. Runtime: <code>O(1)</code></p>
 
 
   <div class="description">
-    <p>Get value for each element in the map. Result in no particular order of the
-corresponding keys.</p>
+    <p>Breadth-first search goes deep before going wide. Works the same
+as <a href="BinarySearchTree.html#searchBreadthFirst">BinarySearchTree#searchBreadthFirst</a>.</p>
   </div>
 
 
 
 
 
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>startValue</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>the value of the vertex to start the search from</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
 
 
 
@@ -1249,7 +1263,154 @@ corresponding keys.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="maps_hashmap.js.html">maps/hashmap.js</a>, <a href="maps_hashmap.js.html#line87">line 87</a>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line171">line 171</a>
+        </li>
+      </ul>
+    </dd>
+  
+
+  
+
+  
+
+  
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+
+
+  
+
+  <span class='name-container'>
+    <a class="link-icon" href="#searchDepthFirst">
+      <svg height="20" width="20" style="fill: black;">
+        <use xlink:href="#linkIcon"></use>
+      </svg>
+    </a>
+    <h4 class="name" id="searchDepthFirst">
+      <span class="type-signature">(generator) </span>searchDepthFirst<span class="signature">(startValue)</span><span class="type-signature"></span>
+    </h4>
+  </span>
+
+  
+
+
+
+  <div class="description">
+    <p>Depth-first search goes deep before going wide. Works the same
+as <a href="BinarySearchTree.html#searchDepthFirst">BinarySearchTree#searchDepthFirst</a>.</p>
+  </div>
+
+
+
+
+
+
+
+  <h5>Parameters:</h5>
+  
+
+<table class="params">
+  <thead>
+    <tr>
+      
+        <th>Name</th>
+      
+
+      <th>Type</th>
+
+      
+
+      
+
+      <th class="last">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    
+      <tr>
+        
+          <td class="name"><code>startValue</code></td>
+        
+
+        <td class="type">
+          
+            
+    <span class="param-type">
+      any
+    </span>
+
+    
+
+
+          
+        </td>
+
+        
+
+        
+
+        <td class="description last">
+          <p>value of the vertex to start the search from</p>
+          
+        </td>
+      </tr>
+
+    
+  </tbody>
+</table>
+
+
+
+
+
+<dl class="details">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source">
+      <ul class="dummy">
+        <li>
+          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line161">line 161</a>
         </li>
       </ul>
     </dd>
