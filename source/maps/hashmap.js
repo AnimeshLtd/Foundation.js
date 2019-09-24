@@ -79,6 +79,31 @@ class HashMap {
   }
 
   /**
+   *  Get value for each element in the map. Result in no particular order of the
+   *  corresponding keys.
+   *  
+   *  @returns {Iterator} values
+   */
+  * values() {
+    for (const key of this._keys) {
+      yield this.get(key)
+    }
+  }
+
+  /**
+   *  Get nodes for each element in the map. Result in no particular order of the
+   *  corresponding keys.
+   *  
+   *  @private
+   *  @returns {Iterator} values
+   */
+  * nodes() {
+    for (const key of this._keys) {
+      yield this.getNodeFor(key)
+    }
+  }
+
+  /**
    *  Get the value for the given `key`. Runtime is usually `O(1)` but if there are 
    *  collisions it could be `O(n)`.
    *  

@@ -265,6 +265,10 @@ class List {
    */
   indexOf(value) {
     return this.find((node, index) => {
+      // A dirty hack to ensure two similar objects aren't reported
+      // as unequal, because they have different collection types (Set vs Object).
+      node.data = JSON.parse(JSON.stringify(node.data))
+      value = JSON.parse(JSON.stringify(value))
       if (isEqual(node.data, value)) {
         return index
       }
