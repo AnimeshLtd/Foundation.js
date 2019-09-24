@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      errors/index.js - Documentation
+      graph/node.js - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -90,7 +90,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        errors/index.js
+        graph/node.js
       </h1>
     
 
@@ -100,21 +100,51 @@
 <section>
   <article>
     <pre class="prettyprint source linenums"><code>/**
- *  JavaScript built-in error type is purposefully generic and bare-bones.
- *  I haven't tried souping it up, but this `errors` module does provide some 
- *  oft-needed error types to better communicate error states and responses.
- * 
- *  You could choose to use these in your application, but do keep in mind
- *  that error handling is not the focus of this project for now.
- * 
- *  @module errors
+ *  Graph node/vertex that can hold adjacent nodes. For performance,
+ *  uses a `Set` instead of array for neighbours. Unlike trees, a
+ *  graph does not have a root node and can be traversed from anywhere.
+ *  
+ *  @class GraphNode
  */
-const OutOfBoundsError = require("./outOfBounds")
+class GraphNode {
+  constructor(data) {
+    this._data = data
+    this._neighbours = new Set()
+  }
 
-module.exports = {
-  /** @type OutOfBoundsError */
-  OutOfBoundsError
+  /**
+   *  Checks if the given `node` is a neighbour
+   *  @param {GraphNode} neighbour 
+   */
+  isNeighbour(node) {
+    return this._neighbours.has(node)
+  }
+
+  /**
+   *  Remove given `neighbour` from the neighbours list. Returns `true`
+   *  node or `false` if node was not found.
+   * 
+   *  Runtime: `O(1)`
+   *  
+   *  @param {GraphNode} neighbour
+   *  @returns {boolean}
+   */
+  removeNeighbour(node) {
+    return this._neighbours.delete(node)
+  }
+
+  /**
+   *  Add `neighbour` to the neighbours list
+   *  Runtime: `O(1)`
+   * 
+   *  @param {GraphNode} neighbour
+   */
+  addNeighbour(node) {
+    this._neighbours.add(node)
+  }
 }
+
+module.exports = GraphNode
 </code></pre>
   </article>
 </section>
