@@ -55,6 +55,15 @@ class Stack {
   pop() {
     return this._items.remove()
   }
+
+  /**
+   *  Retrieve the item from the top of the stack
+   *  
+   *  @returns {any} data item fetched
+   */
+  peek() {
+    return this._items.itemAtIndex(this.depth - 1)
+  }
 }
 
 module.exports = Stack
