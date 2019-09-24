@@ -14,6 +14,9 @@ class BinaryTreeNode {
     this._left = null
     /** @private */
     this._right = null
+    /** @private */
+    this._parentSide = null
+
     /** 
      *  Holds metadata about the node, like duplicity, colour (for visualisations),
      *  or any other custom data points needed.
@@ -50,6 +53,11 @@ class BinaryTreeNode {
     this._left = node
   }
 
+  /** @private */
+  get isLeftChild() {
+    return this._parentSide === "left"
+  }
+
   /**
    *  Return the node's right child, or `null` if the node has none.
    *  @private
@@ -68,6 +76,10 @@ class BinaryTreeNode {
     this._right = node
   }
 
+  /** @private */
+  get isRightChild() {
+    return this._parentSide === "right"
+  }
   
   /**
    *  Returns an object literal representation of the node.
