@@ -179,7 +179,8 @@ class Graph {
    *  
    *  Breadth-first search if `Type` is `Queue`.
    *  Depth-first search if `Type` is `Stack`.
-   * 
+   *  
+   *  @private
    *  @param {GraphNode} first vertex to start the search
    *  @param {Stack|Queue} Type `Stack` for depth-first; `Queue` for breadth-first
    */
