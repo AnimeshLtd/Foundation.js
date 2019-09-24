@@ -16,11 +16,11 @@
  *  @module maps
  */
 const HashMap = require("./hashmap")
-// const TreeMap = require("./treemap")
+const TreeMap = require("./treemap")
 
 module.exports = {
   /** @type HashMap */
   HashMap,
   /** @type TreeMap */
-  // TreeMap
+  TreeMap
 }
