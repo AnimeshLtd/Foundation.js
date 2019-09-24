@@ -1,0 +1,413 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Graph should search breadth-first 1`] = `
+Array [
+  GraphNode {
+    "_data": "India",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "Sweden",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Mongolia",
+            "_neighbours": Set {
+              [Circular],
+              GraphNode {
+                "_data": "Austria",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+            },
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Austria",
+        "_neighbours": Set {
+          [Circular],
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "Mongolia",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+            },
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Zimbabwe",
+        "_neighbours": Set {},
+      },
+    },
+  },
+  GraphNode {
+    "_data": "Sweden",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "Mongolia",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "India",
+            "_neighbours": Set {
+              [Circular],
+              GraphNode {
+                "_data": "Austria",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+              GraphNode {
+                "_data": "Zimbabwe",
+                "_neighbours": Set {},
+              },
+            },
+          },
+          GraphNode {
+            "_data": "Austria",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "India",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                  GraphNode {
+                    "_data": "Zimbabwe",
+                    "_neighbours": Set {},
+                  },
+                },
+              },
+              [Circular],
+            },
+          },
+        },
+      },
+    },
+  },
+  GraphNode {
+    "_data": "Austria",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "India",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "Mongolia",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+            },
+          },
+          [Circular],
+          GraphNode {
+            "_data": "Zimbabwe",
+            "_neighbours": Set {},
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Sweden",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Mongolia",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "India",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                  GraphNode {
+                    "_data": "Zimbabwe",
+                    "_neighbours": Set {},
+                  },
+                },
+              },
+              [Circular],
+            },
+          },
+        },
+      },
+    },
+  },
+  GraphNode {
+    "_data": "Zimbabwe",
+    "_neighbours": Set {},
+  },
+  GraphNode {
+    "_data": "Mongolia",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "India",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              [Circular],
+            },
+          },
+          GraphNode {
+            "_data": "Austria",
+            "_neighbours": Set {
+              [Circular],
+              GraphNode {
+                "_data": "Sweden",
+                "_neighbours": Set {
+                  [Circular],
+                },
+              },
+            },
+          },
+          GraphNode {
+            "_data": "Zimbabwe",
+            "_neighbours": Set {},
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Austria",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "India",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "Sweden",
+                "_neighbours": Set {
+                  [Circular],
+                },
+              },
+              [Circular],
+              GraphNode {
+                "_data": "Zimbabwe",
+                "_neighbours": Set {},
+              },
+            },
+          },
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              [Circular],
+            },
+          },
+        },
+      },
+    },
+  },
+]
+`;
+
+exports[`Graph should search depth-first 1`] = `
+Array [
+  GraphNode {
+    "_data": "India",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "Sweden",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Mongolia",
+            "_neighbours": Set {
+              [Circular],
+              GraphNode {
+                "_data": "Austria",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+            },
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Austria",
+        "_neighbours": Set {
+          [Circular],
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "Mongolia",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+            },
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Zimbabwe",
+        "_neighbours": Set {},
+      },
+    },
+  },
+  GraphNode {
+    "_data": "Zimbabwe",
+    "_neighbours": Set {},
+  },
+  GraphNode {
+    "_data": "Austria",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "India",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "Mongolia",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+            },
+          },
+          [Circular],
+          GraphNode {
+            "_data": "Zimbabwe",
+            "_neighbours": Set {},
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Sweden",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Mongolia",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "India",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                  GraphNode {
+                    "_data": "Zimbabwe",
+                    "_neighbours": Set {},
+                  },
+                },
+              },
+              [Circular],
+            },
+          },
+        },
+      },
+    },
+  },
+  GraphNode {
+    "_data": "Sweden",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "Mongolia",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "India",
+            "_neighbours": Set {
+              [Circular],
+              GraphNode {
+                "_data": "Austria",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                },
+              },
+              GraphNode {
+                "_data": "Zimbabwe",
+                "_neighbours": Set {},
+              },
+            },
+          },
+          GraphNode {
+            "_data": "Austria",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "India",
+                "_neighbours": Set {
+                  [Circular],
+                  [Circular],
+                  GraphNode {
+                    "_data": "Zimbabwe",
+                    "_neighbours": Set {},
+                  },
+                },
+              },
+              [Circular],
+            },
+          },
+        },
+      },
+    },
+  },
+  GraphNode {
+    "_data": "Mongolia",
+    "_neighbours": Set {
+      GraphNode {
+        "_data": "India",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              [Circular],
+            },
+          },
+          GraphNode {
+            "_data": "Austria",
+            "_neighbours": Set {
+              [Circular],
+              GraphNode {
+                "_data": "Sweden",
+                "_neighbours": Set {
+                  [Circular],
+                },
+              },
+            },
+          },
+          GraphNode {
+            "_data": "Zimbabwe",
+            "_neighbours": Set {},
+          },
+        },
+      },
+      GraphNode {
+        "_data": "Austria",
+        "_neighbours": Set {
+          GraphNode {
+            "_data": "India",
+            "_neighbours": Set {
+              GraphNode {
+                "_data": "Sweden",
+                "_neighbours": Set {
+                  [Circular],
+                },
+              },
+              [Circular],
+              GraphNode {
+                "_data": "Zimbabwe",
+                "_neighbours": Set {},
+              },
+            },
+          },
+          GraphNode {
+            "_data": "Sweden",
+            "_neighbours": Set {
+              [Circular],
+            },
+          },
+        },
+      },
+    },
+  },
+]
+`;

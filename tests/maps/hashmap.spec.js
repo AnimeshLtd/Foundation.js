@@ -3,6 +3,8 @@ const HashMap = require("../../source/maps").HashMap
 describe("Maps ◊ HashMap", function() {
   it("should initialise an empty map",            testInit)
   it("should return null for non-existing key",   testGet)
+  it("should iterate over values",                testValuesGenerator)
+  it("should iterate over nodes",                 testNodesGenerator)
   it("should over-write existing key-value pair", testAddDuplicate)
   it("should remove key-value pair",              testDelete)
   it("should be able to tell if key is present",  testHas)
@@ -67,4 +69,26 @@ function testRehash() {
   hashmap.add("Scotland", "Edinburgh")
   hashmap.add("Wales", "Cardiff")
   expect(hashmap._initialCapacity).toBe(8)
+}
+
+function testValuesGenerator() {
+  const hashmap = new HashMap(4)
+  hashmap.add("England", "London")
+  hashmap.add("Northern Ireland", "Belfast")
+  hashmap.add("Scotland", "Edinburgh")
+  hashmap.add("Wales", "Cardiff")
+
+  const values = Array.from(hashmap.values())
+  expect(values.toString()).toBe("London,Belfast,Edinburgh,Cardiff")
+}
+
+function testNodesGenerator() {
+  const hashmap = new HashMap(4)
+  hashmap.add("England", "London")
+  hashmap.add("Northern Ireland", "Belfast")
+  hashmap.add("Scotland", "Edinburgh")
+  hashmap.add("Wales", "Cardiff")
+
+  const nodes = Array.from(hashmap.nodes())
+  expect(nodes).toMatchSnapshot()
 }

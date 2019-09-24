@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Maps ◊ HashMap should iterate over nodes 1`] = `
+Array [
+  Node {
+    "data": Object {
+      "key": "England",
+      "value": "London",
+    },
+    "next": Node {
+      "data": Object {
+        "key": "Northern Ireland",
+        "value": "Belfast",
+      },
+      "next": Node {
+        "data": Object {
+          "key": "Scotland",
+          "value": "Edinburgh",
+        },
+        "next": null,
+        "previous": [Circular],
+      },
+      "previous": [Circular],
+    },
+    "previous": null,
+  },
+  Node {
+    "data": Object {
+      "key": "Northern Ireland",
+      "value": "Belfast",
+    },
+    "next": Node {
+      "data": Object {
+        "key": "Scotland",
+        "value": "Edinburgh",
+      },
+      "next": null,
+      "previous": [Circular],
+    },
+    "previous": Node {
+      "data": Object {
+        "key": "England",
+        "value": "London",
+      },
+      "next": [Circular],
+      "previous": null,
+    },
+  },
+  Node {
+    "data": Object {
+      "key": "Scotland",
+      "value": "Edinburgh",
+    },
+    "next": null,
+    "previous": Node {
+      "data": Object {
+        "key": "Northern Ireland",
+        "value": "Belfast",
+      },
+      "next": [Circular],
+      "previous": Node {
+        "data": Object {
+          "key": "England",
+          "value": "London",
+        },
+        "next": [Circular],
+        "previous": null,
+      },
+    },
+  },
+  Node {
+    "data": Object {
+      "key": "Wales",
+      "value": "Cardiff",
+    },
+    "next": null,
+    "previous": null,
+  },
+]
+`;

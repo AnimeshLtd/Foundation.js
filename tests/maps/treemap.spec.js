@@ -61,9 +61,6 @@ function testKeySort() {
 }
 
 function testGetValues() {
-  for (const a of map) {
-    console.log(a)
-  }
   let values = []
   for (const value of map.values()) {
     values.push(value)
