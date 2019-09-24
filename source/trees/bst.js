@@ -87,10 +87,12 @@ class BinarySearchTree {
       node.metadata.copies += 1
     }
     else if (data < parent.data) {
-      parent.leftChild = (newNode)
+      parent.leftChild = newNode
+      newNode._parentSide = "left"
     }
     else {
-      parent.rightChild = (newNode)
+      parent.rightChild = newNode
+      newNode._parentSide = "right"
     }
 
     this._count += 1
@@ -181,9 +183,15 @@ class BinarySearchTree {
     }
     else if (node.isLeftChild) {
       parent.leftChild = heir
+      if (heir) {
+        heir._parentSide = "left"
+      }
     }
     else {
       parent.rightChild = heir
+      if (heir) {
+        heir._parentSide = "right"
+      }
     }
 
     this._count -= 1
@@ -213,6 +221,9 @@ class BinarySearchTree {
     if (parent.rightChild) {
       const leftmost = this.getLeftmost(parent.rightChild)
       leftmost.leftChild = parent.leftChild
+      if (parent.leftChild) {
+        parent.leftChild._parentSide = "left"
+      }
       return parent.rightChild
     }
     return parent.leftChild
