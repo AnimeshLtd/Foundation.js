@@ -1,4 +1,4 @@
-const TreeMap = require("../../source/maps").TreeMap
+const { TreeMap } = require("../../source").Maps
 
 let map;
 

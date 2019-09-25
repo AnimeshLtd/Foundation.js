@@ -1,28 +1,24 @@
 {
   "name": "@animesh.ltd/foundation",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "The missing JavaScript standard library",
   "license": "MIT",
-  "main": "source/foundation.js",
+  "main": "source/index.js",
   "scripts": {
     "ci": "npm install && jest",
     "test": "jest",
     "docs": "jsdoc -c jsdoc.json"
   },
-  "homepage": "https://github.com/AnimeshLtd/Foundation.js#readme",
+  "homepage": "https://pages.gitlab.io/Foundation.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AnimeshLtd/Foundation.js"
+    "url": "https://gitlab.com/animesh.ltd/Foundation.js"
   },
   "bugs": {
-    "url": "https://github.com/AnimeshLtd/Foundation.js/issues",
+    "url": "https://gitlab.com/animesh.ltd/Foundation.js/issues",
     "email": "hello@animesh.ltd"
   },
-  "author": {
-    "name": "Animesh Mishra",
-    "email": "hello@animesh.ltd",
-    "url": "https://animesh.ltd"
-  },
+  "author": "See ./Contributors",
   "devDependencies": {
     "braintree-jsdoc-template": "^3.3.0",
     "jest": "^24.8.0",

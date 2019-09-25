@@ -1,4 +1,4 @@
-const HashMap = require("../../source/maps").HashMap
+const { HashMap } = require("../../source").Maps
 
 describe("Maps ◊ HashMap", function() {
   it("should initialise an empty map",            testInit)

@@ -1,4 +1,4 @@
-const List = require("../../source/linear").List
+const { List } = require("../../source").Linear
 
 describe("Collections ◊ List", function () {
   it("should initialise a list",                            testInit)

@@ -1,4 +1,4 @@
-const Queue = require("../../source/linear").Queue
+const { Queue } = require("../../source").Linear
 
 describe("Collections ◊ Queue", function() {
   it("should initialise a queue",         testInit)
