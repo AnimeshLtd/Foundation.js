@@ -9,7 +9,7 @@
     "test": "jest",
     "docs": "jsdoc -c jsdoc.json"
   },
-  "homepage": "https://pages.gitlab.io/Foundation.js",
+  "homepage": "https://animesh.ltd.gitlab.io/Foundation.js",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/animesh.ltd/Foundation.js"
