@@ -1,13 +1,25 @@
 image: node:12.8.1
 
 stages:
-  - test
+- test
+- publish
 
 test:
   stage: test
   script:
-    - NODE_ENV=ci npm run ci
+  - NODE_ENV=ci npm run ci
   cache:
     key: "$CI_BUILD_REF_NAME"
     paths:
-      - "node_modules/"
+    - "node_modules/"
+
+pages:
+  stage: publish
+  script:
+  - mkdir public
+  - cp -a docs/* public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master

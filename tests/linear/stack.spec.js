@@ -1,4 +1,4 @@
-const Stack = require("../../source/linear").Stack
+const { Stack } = require("../../source").Linear
 
 describe("Collections ◊ Stack", function() {
   it("should initialise a stack",           testInit)

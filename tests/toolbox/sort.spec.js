@@ -4,7 +4,7 @@ const {
   MergeSort,
   QuickSort,
   SelectionSort
-} = require("../../source/toolbox")
+} = require("../../source").Toolbox
 
 let sorted = [24, 121, 452, 1889, 9821, 10231, 34511, 871231]
 let unsorted = [452, 871231, 24, 10231, 1889, 34511, 9821, 121]

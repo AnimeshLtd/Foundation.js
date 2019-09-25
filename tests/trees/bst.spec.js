@@ -1,4 +1,4 @@
-const BinarySearchTree = require("../../source/trees").BinarySearchTree
+const { BinarySearchTree } = require("../../source").Trees
 
 describe("Tree ◊ Binary Search Tree", function() {
   it("should initialise an empty tree",                   testInit)
