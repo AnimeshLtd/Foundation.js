@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>
-      Graph - Documentation
+      toolbox/sort - Documentation
   </title>
 
   <link href="https://www.braintreepayments.com/images/favicon-ccda0b14.png" rel="icon" type="image/png">
@@ -88,7 +88,7 @@
   <div id="main">
     
       <h1 class="page-title">
-        Graph
+        toolbox/sort
       </h1>
     
 
@@ -97,138 +97,78 @@
 <section>
   <header>
     
-      <h2>
-        
-          <span class="ancestors"><a href="module-graph.html">graph</a>~</span>
-        
-        Graph
-        
-      </h2>
-
       
-        <div class="class-description">
-          <p>The connection between two nodes in a graph is called an <strong>edge</strong>.
-Nodes are also referred to as <strong>vertices</strong>.</p>
-<p>A graph can be <strong>directed</strong> or <strong>undirected</strong>. A directed graph
-has edges that allow traversing in one direction only. Whereas edges
-in an undirected graph are two-way and can be traversed freely.</p>
-<p>Graphs can be <strong>cyclic</strong> or <strong>acyclic</strong>. A graph in which you can
-pass through a node more than once is called a cyclic graph. Those
-who don't share this characteristic are acyclic graphs.</p>
-        </div>
-      
-    
+        
   </header>
 
   <article>
     <div class="container-overview">
       
         
-
-
-  
-    <h2>Constructor</h2>
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#Graph">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id="Graph">
-      <span class="type-signature"></span>new Graph<span class="signature">(directed<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Instantiates a graph.</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-        <th>Attributes</th>
-      
-
-      
-        <th>Default</th>
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>directed</code></td>
+          <div class="description">
+            <p>Sorting is one most common operation on a collection of data.
+This modules provides the following algorithms:</p>
+<ul>
+<li>Insertion sort <code>O(n²)</code></li>
+<li>Selection sort <code>O(n²)</code></li>
+<li>Insertion sort <code>O(n²)</code></li>
+<li>Merge sort <code>O(n log n)</code></li>
+<li>Quicksort <code>O(n log n)</code></li>
+</ul>
+<h2>Sorting properties</h2>
+<h3>Stability</h3>
+<p>An algorithm is said to be stable if it uses a secondary criteria to ensure
+some order for items that fall in the same group based on the primary
+criteria.</p>
+<p>For example, given</p>
+<pre class="prettyprint source"><code>const users = [
+  { name: 'Animesh', age: 26 },
+  { name: 'Nicoleta', age: 25 }, 
+  { name: 'Chris', age: 32 },
+  { name: 'Adam', age: 32 },
+];
+</code></pre>
+<p>A stable sorting algorithm (ascending order by age) will <strong>always</strong> return</p>
+<pre class="prettyprint source"><code>const users = [
+  { name: 'Nicoleta', age: 25 }, 
+  { name: 'Animesh', age: 26 },
+  { name: 'Adam', age: 32 },
+  { name: 'Chris', age: 32 },
+];
+</code></pre>
+<p>Notice that Adam and Chris were sorted alphabetically within their primary group
+(age = 32).</p>
+<p>An unstable algorithm may or may not return the same result. It will sort by age
+alright, but may place Chris before Adam.</p>
+<h3>In-place</h3>
+<p>An in-place sorting algorithm has a space complexity of <code>O(1)</code>. It doesn't require
+extra memory because it shuffles the item within the collection itself. Such algorithm
+are extremely useful in memory contraint environments such as embedded devices.</p>
+<h3>Online</h3>
+<p>Online sorting algorithm don't need to resort the whole collection if a new item
+is added.</p>
+<h3>Adaptive</h3>
+<p>An adaptive algorithm takes advantage of helpful properties of the input. Non-adaptive
+doesn't. A simple example from manual arithmetic is methods for multiplying. Non-adaptive
+means you multiply every digit no matter what, adaptive would, say, tack a 0 to the end
+of a number when multiplying by 10 without ever carrying out the actual multiplication.</p>
+<p>In the context of sorting, an non-adaptive algorithm takes the same(ish) amount of time
+for a given number of values no matter what. An adaptive algorithm takes advantage of
+properties of the data. This usually means taking advantage of any near sorted or already
+sorted portions.</p>
+          </div>
         
 
-        <td class="type">
+        
           
-            
-    <span class="param-type">
-      boolean
-    </span>
-
-    
 
 
-          
-        </td>
 
-        
-          <td class="attributes">
-            
-              &lt;optional><br>
-            
 
-            
 
-            
-          </td>
-        
 
-        
-          <td class="default">
-            
-              true
-            
-          </td>
-        
 
-        <td class="description last">
-          <p>Edge direction. Set to <code>false</code>
-for an undirected graph.</p>
-          
-        </td>
-      </tr>
 
-    
-  </tbody>
-</table>
 
 
 
@@ -265,7 +205,7 @@ for an undirected graph.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line30">line 30</a>
+          <a href="toolbox_sort.js.html">toolbox/sort.js</a>, <a href="toolbox_sort.js.html#line1">line 1</a>
         </li>
       </ul>
     </dd>
@@ -291,6 +231,7 @@ for an undirected graph.</p>
 
 
 
+        
       
     </div>
 
@@ -316,13 +257,13 @@ for an undirected graph.</p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#addEdge">
+    <a class="link-icon" href="#~BubbleSort">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="addEdge">
-      <span class="type-signature"></span>addEdge<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {Object}</span>
+    <h4 class="name" id="~BubbleSort">
+      <span class="type-signature">(inner) </span>BubbleSort<span class="signature">(collection)</span><span class="type-signature"> &rarr; {Array}</span>
     </h4>
   </span>
 
@@ -331,14 +272,19 @@ for an undirected graph.</p>
 
 
   <div class="description">
-    <p>Create a connection between <code>source</code> node and <code>destination</code> node. If the
-graph is undirected, it will also create the connection from <code>destination</code>
-to <code>destination</code>.
-If the nodes don't exist, they will be created anew with values set to
-<code>source</code> and <code>destination</code> respectively.</p>
-<p>Return source/destination node pair as
-<code>{ source: GraphNode, destination: GraphNode }</code></p>
-<p>Runtime: <code>O(1)</code></p>
+    <p>Bubble sort repeatedly steps through the collection to be sorted, compares each pair of
+adjacent items and swaps them if they are in the wrong order. This continues until no
+swaps are needed.</p>
+<p>Returns the sorted collection as an array.</p>
+<h4>Properties</h4>
+<ul>
+<li>✅ Stable</li>
+<li>✅ In-place</li>
+<li>✅ Online</li>
+<li>✅ Adaptive, <code>O(n)</code> if the array is already sorted</li>
+<li>Time complexity: <code>O(n²)</code></li>
+<li>Space complexity: <code>O(1)</code></li>
+</ul>
   </div>
 
 
@@ -371,14 +317,14 @@ If the nodes don't exist, they will be created anew with values set to
     
       <tr>
         
-          <td class="name"><code>source</code></td>
+          <td class="name"><code>collection</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      any
+      Iterable
     </span>
 
     
@@ -392,36 +338,7 @@ If the nodes don't exist, they will be created anew with values set to
         
 
         <td class="description last">
-          
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>destination</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          
+          <p>Collection items <strong>must</strong> support comparison operations &lt;, &gt;, ==</p>
           
         </td>
       </tr>
@@ -465,7 +382,7 @@ If the nodes don't exist, they will be created anew with values set to
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line94">line 94</a>
+          <a href="toolbox_sort.js.html">toolbox/sort.js</a>, <a href="toolbox_sort.js.html#line84">line 84</a>
         </li>
       </ul>
     </dd>
@@ -498,13 +415,13 @@ If the nodes don't exist, they will be created anew with values set to
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#addVertex">
+    <a class="link-icon" href="#~InsertionSort">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="addVertex">
-      <span class="type-signature"></span>addVertex<span class="signature">(data)</span><span class="type-signature"> &rarr; {<a href="GraphNode.html">GraphNode</a>}</span>
+    <h4 class="name" id="~InsertionSort">
+      <span class="type-signature">(inner) </span>InsertionSort<span class="signature">(collection)</span><span class="type-signature"> &rarr; {array}</span>
     </h4>
   </span>
 
@@ -513,9 +430,19 @@ If the nodes don't exist, they will be created anew with values set to
 
 
   <div class="description">
-    <p>Add a vertex to the graph. Returns the new vertex or the existing
-one if it already exists.</p>
-<p>Runtime: <code>O(1)</code></p>
+    <p>The &quot;natural&quot; way of sorting. Starts from the second element, and checks whether
+it's smaller than values that come before it. If so, it's placed to its rightful
+place. Otherwise, moves on the next element.</p>
+<p>Returns the sorted collection as an array.</p>
+<h4>Properties</h4>
+<ul>
+<li>✅ Stable</li>
+<li>✅ In-place</li>
+<li>✅ Online</li>
+<li>✅ Adaptive</li>
+<li>Time complexity: <code>O(n²)</code></li>
+<li>Space complexity: <code>O(1)</code></li>
+</ul>
   </div>
 
 
@@ -548,14 +475,14 @@ one if it already exists.</p>
     
       <tr>
         
-          <td class="name"><code>data</code></td>
+          <td class="name"><code>collection</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      any
+      Iterable
     </span>
 
     
@@ -569,7 +496,7 @@ one if it already exists.</p>
         
 
         <td class="description last">
-          
+          <p>Collection items <strong>must</strong> support comparison operations &lt;, &gt;, ==</p>
           
         </td>
       </tr>
@@ -613,7 +540,7 @@ one if it already exists.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line49">line 49</a>
+          <a href="toolbox_sort.js.html">toolbox/sort.js</a>, <a href="toolbox_sort.js.html#line123">line 123</a>
         </li>
       </ul>
     </dd>
@@ -646,13 +573,13 @@ one if it already exists.</p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#areNeighbours">
+    <a class="link-icon" href="#~MergeSort">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="areNeighbours">
-      <span class="type-signature"></span>areNeighbours<span class="signature">(source, destination)</span><span class="type-signature"> &rarr; {boolean}</span>
+    <h4 class="name" id="~MergeSort">
+      <span class="type-signature">(inner) </span>MergeSort<span class="signature">(collection)</span><span class="type-signature"> &rarr; {array}</span>
     </h4>
   </span>
 
@@ -661,7 +588,21 @@ one if it already exists.</p>
 
 
   <div class="description">
-    <p>Returns <code>true</code> if two nodes are adjacent to each other.</p>
+    <p>An efficient sorting algorithm that uses divide and conquer technique to
+accomplish its task faster.</p>
+<p>Splits the array into halves until 2 or fewer elements are left in each half.
+It sorts these two elements and then merges back all halves until the whole
+collection is sorted.</p>
+<p>Returns the sorted collection as an array.</p>
+<h4>Properties</h4>
+<ul>
+<li>✅ Stable</li>
+<li>❌ In-place</li>
+<li>❌ Online</li>
+<li>❌ Adaptive</li>
+<li>Time complexity: <code>O(n log n)</code></li>
+<li>Space complexity: <code>O(n)</code></li>
+</ul>
   </div>
 
 
@@ -694,14 +635,14 @@ one if it already exists.</p>
     
       <tr>
         
-          <td class="name"><code>source</code></td>
+          <td class="name"><code>collection</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      any
+      Iterable
     </span>
 
     
@@ -715,36 +656,7 @@ one if it already exists.</p>
         
 
         <td class="description last">
-          <p>source node's value</p>
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>destination</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>destination node's value</p>
+          <p>Collection items <strong>must</strong> support comparison operations &lt;, &gt;, ==</p>
           
         </td>
       </tr>
@@ -788,7 +700,7 @@ one if it already exists.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line144">line 144</a>
+          <a href="toolbox_sort.js.html">toolbox/sort.js</a>, <a href="toolbox_sort.js.html#line222">line 222</a>
         </li>
       </ul>
     </dd>
@@ -821,13 +733,13 @@ one if it already exists.</p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#removeEdge">
+    <a class="link-icon" href="#~QuickSort">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="removeEdge">
-      <span class="type-signature"></span>removeEdge<span class="signature">(source, destination)</span><span class="type-signature"></span>
+    <h4 class="name" id="~QuickSort">
+      <span class="type-signature">(inner) </span>QuickSort<span class="signature">(collection)</span><span class="type-signature"> &rarr; {array}</span>
     </h4>
   </span>
 
@@ -836,12 +748,25 @@ one if it already exists.</p>
 
 
   <div class="description">
-    <p>Remove connection between <code>source</code> node and <code>destination</code> node.
-If the graph is undirected it will also remove the connection from
-<code>destination</code> to <code>destination</code>.</p>
-<p>Returns <code>true</code> if  deletion is successful, <code>false</code> if no such nodes
-exist.</p>
-<p>Runtime: <code>O(n)</code> where n is the number of edges</p>
+    <p>An efficient sorting algorithm that uses divide and conquer technique to
+accomplish its task faster. Unlike MergeSort it works in-place,
+and doesn't require additional memory.</p>
+<p>Quicksort works by picking a &quot;pivot&quot; element (preferably random) and move
+all elements that are smaller than the pivot to the right. The ones that
+are larger than the pivot are moved to the left of it. This is done recursively
+until the collection is sorted.</p>
+<p>Returns the sorted collection as an array.</p>
+<h4>Properties</h4>
+<ul>
+<li>❌ Stable</li>
+<li>✅ In-place</li>
+<li>❌ Online</li>
+<li>❌ Adaptive</li>
+<li>Time complexity: <code>O(n log n)</code></li>
+<li>Space complexity: <code>O(1)</code></li>
+</ul>
+<p>Typically, an array sorted in descending order gives the worst-case performance
+of quick sort <code>O(n²)</code>. To avoid this, the</p>
   </div>
 
 
@@ -874,14 +799,14 @@ exist.</p>
     
       <tr>
         
-          <td class="name"><code>source</code></td>
+          <td class="name"><code>collection</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      any
+      Iterable
     </span>
 
     
@@ -895,36 +820,7 @@ exist.</p>
         
 
         <td class="description last">
-          
-          
-        </td>
-      </tr>
-
-    
-      <tr>
-        
-          <td class="name"><code>destination</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          
+          <p>Collection items <strong>must</strong> support comparison operations &lt;, &gt;, ==</p>
           
         </td>
       </tr>
@@ -968,7 +864,7 @@ exist.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line122">line 122</a>
+          <a href="toolbox_sort.js.html">toolbox/sort.js</a>, <a href="toolbox_sort.js.html#line291">line 291</a>
         </li>
       </ul>
     </dd>
@@ -1001,13 +897,13 @@ exist.</p>
   
 
   <span class='name-container'>
-    <a class="link-icon" href="#removeVertex">
+    <a class="link-icon" href="#~SelectionSort">
       <svg height="20" width="20" style="fill: black;">
         <use xlink:href="#linkIcon"></use>
       </svg>
     </a>
-    <h4 class="name" id="removeVertex">
-      <span class="type-signature"></span>removeVertex<span class="signature">(data)</span><span class="type-signature"> &rarr; (nullable) {any}</span>
+    <h4 class="name" id="~SelectionSort">
+      <span class="type-signature">(inner) </span>SelectionSort<span class="signature">(collection)</span><span class="type-signature"> &rarr; {array}</span>
     </h4>
   </span>
 
@@ -1016,9 +912,45 @@ exist.</p>
 
 
   <div class="description">
-    <p>Removes vertex with the given <code>data</code> from the graph. Returns the removed
-node's value or <code>null</code> if no such node was found.</p>
-<p>Runtime: <code>O(n)</code> where n = number of vertices + number of edges</p>
+    <p>Sorts an array by repeatedly finding the minimum element (considering ascending order) from
+unsorted part and putting it at the beginning. The algorithm maintains two subarrays in a
+given array.</p>
+<ol>
+<li>The subarray which is already sorted.</li>
+<li>Remaining subarray which is unsorted.</li>
+</ol>
+<p>In every iteration of selection sort, the minimum element (considering ascending order) from
+the unsorted subarray is picked and moved to the sorted subarray. <strong>Selection sort minimises</strong>
+<strong>the number of swaps.</strong> Unlike insertion and bubble sort, it does only one swap in each
+iteration of the whole collection.</p>
+<pre class="prettyprint source"><code>arr[] = 64 25 12 22 11
+
+// Find the minimum element in arr[0...4]
+// and place it at beginning
+11 25 12 22 64
+
+// Find the minimum element in arr[1...4]
+// and place it at beginning of arr[1...4]
+11 12 25 22 64
+
+// Find the minimum element in arr[2...4]
+// and place it at beginning of arr[2...4]
+11 12 22 25 64
+
+// Find the minimum element in arr[3...4]
+// and place it at beginning of arr[3...4]
+11 12 22 25 64 
+</code></pre>
+<p>Returns the sorted collection as an array.</p>
+<h4>Properties</h4>
+<ul>
+<li>❌ Stable</li>
+<li>✅ In-place</li>
+<li>❌ Online</li>
+<li>❌ Adaptive</li>
+<li>Time complexity: <code>O(n²)</code></li>
+<li>Space complexity: <code>O(1)</code></li>
+</ul>
   </div>
 
 
@@ -1051,14 +983,14 @@ node's value or <code>null</code> if no such node was found.</p>
     
       <tr>
         
-          <td class="name"><code>data</code></td>
+          <td class="name"><code>collection</code></td>
         
 
         <td class="type">
           
             
     <span class="param-type">
-      any
+      Iterable
     </span>
 
     
@@ -1072,7 +1004,7 @@ node's value or <code>null</code> if no such node was found.</p>
         
 
         <td class="description last">
-          
+          <p>Collection items <strong>must</strong> support comparison operations &lt;, &gt;, ==</p>
           
         </td>
       </tr>
@@ -1116,301 +1048,7 @@ node's value or <code>null</code> if no such node was found.</p>
     <dd class="tag-source">
       <ul class="dummy">
         <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line68">line 68</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#searchBreadthFirst">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id="searchBreadthFirst">
-      <span class="type-signature">(generator) </span>searchBreadthFirst<span class="signature">(startValue)</span><span class="type-signature"></span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Breadth-first search goes deep before going wide. Works the same
-as <a href="BinarySearchTree.html#searchBreadthFirst">BinarySearchTree#searchBreadthFirst</a>.</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>startValue</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>the value of the vertex to start the search from</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line171">line 171</a>
-        </li>
-      </ul>
-    </dd>
-  
-
-  
-
-  
-
-  
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-        
-
-
-  
-
-  <span class='name-container'>
-    <a class="link-icon" href="#searchDepthFirst">
-      <svg height="20" width="20" style="fill: black;">
-        <use xlink:href="#linkIcon"></use>
-      </svg>
-    </a>
-    <h4 class="name" id="searchDepthFirst">
-      <span class="type-signature">(generator) </span>searchDepthFirst<span class="signature">(startValue)</span><span class="type-signature"></span>
-    </h4>
-  </span>
-
-  
-
-
-
-  <div class="description">
-    <p>Depth-first search goes deep before going wide. Works the same
-as <a href="BinarySearchTree.html#searchDepthFirst">BinarySearchTree#searchDepthFirst</a>.</p>
-  </div>
-
-
-
-
-
-
-
-  <h5>Parameters:</h5>
-  
-
-<table class="params">
-  <thead>
-    <tr>
-      
-        <th>Name</th>
-      
-
-      <th>Type</th>
-
-      
-
-      
-
-      <th class="last">Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    
-      <tr>
-        
-          <td class="name"><code>startValue</code></td>
-        
-
-        <td class="type">
-          
-            
-    <span class="param-type">
-      any
-    </span>
-
-    
-
-
-          
-        </td>
-
-        
-
-        
-
-        <td class="description last">
-          <p>value of the vertex to start the search from</p>
-          
-        </td>
-      </tr>
-
-    
-  </tbody>
-</table>
-
-
-
-
-
-<dl class="details">
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source">
-      <ul class="dummy">
-        <li>
-          <a href="graph_index.js.html">graph/index.js</a>, <a href="graph_index.js.html#line161">line 161</a>
+          <a href="toolbox_sort.js.html">toolbox/sort.js</a>, <a href="toolbox_sort.js.html#line181">line 181</a>
         </li>
       </ul>
     </dd>
