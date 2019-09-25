@@ -1,3 +1,5 @@
 # Foundation
 
-The missing JavaScript standard library
+The missing JavaScript standard library.
+
+Documentation: `docs/index.html` 

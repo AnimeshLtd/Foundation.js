@@ -1,4 +1,4 @@
-const Graph = require("../../source/graph")
+const { Graph } = require("../../source")
 
 let graph;
 
