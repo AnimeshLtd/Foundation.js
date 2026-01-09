@@ -1,0 +1,26 @@
+# Default owner for all files in the repo
+*                @SirAnimesh @JavierMendozaGomez
+
+# Backend ownership
+/backend/         @sumitmukhija @AnimeshLtd/showcase
+
+# Frontend ownership (multiple owners)
+/frontend/        @SirAnimesh
+
+# Specific file
+/README.md        @VladimirAkopyan
+
+# JavaScript files in any folder
+**/*.js           @SirAnimesh @sumitmukhija
+
+# Terraform files anywhere
+**/*.tf          @JavierMendozaGomez
+
+# CI/CD workflows
+.github/workflows/  @JavierMendozaGomez
+
+# Config files named 'config.yaml' in any folder
+**/config.yaml    @SirAnimesh
+
+# Markdown documentation files
+*.md              @SirAnimesh @JavierMendozaGomez @AnimeshLtd/showcase
