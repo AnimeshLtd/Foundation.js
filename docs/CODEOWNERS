@@ -8,7 +8,7 @@
 /frontend/        @SirAnimesh
 
 # Specific file
-/README.md        @VladimirAkopyan
+/README.md        @SirAnimesh
 
 # JavaScript files in any folder
 **/*.js           @SirAnimesh @sumitmukhija
